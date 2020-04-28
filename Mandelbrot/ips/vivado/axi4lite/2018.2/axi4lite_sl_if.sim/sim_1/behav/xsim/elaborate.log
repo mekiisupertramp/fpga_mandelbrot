@@ -1,0 +1,23 @@
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto 822b83fc1abe40bdb2a2a98d9cd2424a --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot tb_axi4lite_if_behav xil_defaultlib.tb_axi4lite_if -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package synopsys.attributes
+Compiling package ieee.std_logic_misc
+Compiling package unisim.vcomponents
+Compiling architecture behavioural of entity xil_defaultlib.axi4lite_wr_chan_sl_if [axi4lite_wr_chan_sl_if_default]
+Compiling architecture behavioural of entity xil_defaultlib.axi4lite_rd_chan_sl_if [axi4lite_rd_chan_sl_if_default]
+Compiling architecture rtl of entity xil_defaultlib.axi4lite_sl_if [axi4lite_sl_if_default]
+Compiling architecture testbench of entity xil_defaultlib.tb_axi4lite_if
+Built simulation snapshot tb_axi4lite_if_behav

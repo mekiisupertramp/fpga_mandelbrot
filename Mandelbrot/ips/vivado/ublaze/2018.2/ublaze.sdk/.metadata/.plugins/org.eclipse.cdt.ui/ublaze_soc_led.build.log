@@ -1,0 +1,21 @@
+11:51:40 **** Build of configuration Debug for project ublaze_soc_led ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../ublaze_soc_led_bsp/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: ublaze_soc_led.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../ublaze_soc_led_bsp/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "ublaze_soc_led.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: ublaze_soc_led.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size ublaze_soc_led.elf  |tee "ublaze_soc_led.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   6996	    340	   3120	  10456	   28d8	ublaze_soc_led.elf
+Finished building: ublaze_soc_led.elf.size
+ 
+
+11:51:40 Build Finished (took 413ms)
+

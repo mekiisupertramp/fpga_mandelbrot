@@ -1,0 +1,5 @@
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+Failure: -- Simulation completed successfully --
+Time: 350 ns  Iteration: 0  Process: /tb_axi4lite_if/check_wr_process  File: /home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/sim/tb_axi4lite_if.vhd
+$finish called at time : 350 ns : File "/home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/sim/tb_axi4lite_if.vhd" Line 366

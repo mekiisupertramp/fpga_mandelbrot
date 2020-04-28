@@ -1,0 +1,25 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/hdl/axi4lite_wr_chan_sl_if.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axi4lite_wr_chan_sl_if
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/hdl/axi4lite_rd_chan_sl_if.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axi4lite_rd_chan_sl_if
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/hdl/axi4lite_sl_if.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axi4lite_sl_if
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/sim/tb_axi4lite_if.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity tb_axi4lite_if
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/sim/tb_axi4lite_if.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity tb_axi4lite_if
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/sim/tb_axi4lite_if.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity tb_axi4lite_if
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/sim/tb_axi4lite_if.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity tb_axi4lite_if
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/hdl/axi4lite_rd_chan_sl_if.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axi4lite_rd_chan_sl_if
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/hdl/axi4lite_wr_chan_sl_if.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axi4lite_wr_chan_sl_if
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/hdl/axi4lite_sl_if.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axi4lite_sl_if
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/sim/tb_axi4lite_if.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity tb_axi4lite_if
+ERROR: [VRFC 10-2666] formal port interruptxsi has no actual or default value [/home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/sim/tb_axi4lite_if.vhd:250]
+ERROR: [VRFC 10-1504] unit testbench ignored due to previous errors [/home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/sim/tb_axi4lite_if.vhd:23]
+INFO: [VRFC 10-240] VHDL file /home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/ips/hw/axi4lite/src/sim/tb_axi4lite_if.vhd ignored due to errors
