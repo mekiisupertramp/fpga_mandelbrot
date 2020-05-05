@@ -1,0 +1,7 @@
+Running: xsim.dir/mandelbrot_iter_time_synth/xsimk -simmode gui -wdb mandelbrot_iter_time_synth.wdb -simrunnum 0 -socket 35654
+Design successfully loaded
+Design Loading Memory Usage: 43116 KB (Peak: 43116 KB)
+Design Loading CPU Usage: 30 ms
+Simulation completed
+Simulation Memory Usage: 133056 KB (Peak: 182388 KB)
+Simulation CPU Usage: 30 ms

@@ -1,10 +1,10 @@
--- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2018.2.2 (lin64) Build 2348494 Mon Oct  1 18:25:39 MDT 2018
--- Date        : Mon Feb 25 10:00:42 2019
--- Host        : xps13-debian running 64-bit Debian GNU/Linux 9.8 (stretch)
--- Command     : write_vhdl -force -mode synth_stub
---               /home/jo/Documents/Hepia/Cours/LPSC/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/fifo_regport/fifo_regport_stub.vhdl
+-- Tool Version: Vivado v.2019.2 (lin64) Build 2708876 Wed Nov  6 21:39:14 MST 2019
+-- Date        : Mon May  4 17:20:41 2020
+-- Host        : xilinx-vm running 64-bit unknown
+-- Command     : write_vhdl -force -mode synth_stub -rename_top fifo_regport -prefix
+--               fifo_regport_ fifo_regport_stub.vhdl
 -- Design      : fifo_regport
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a200tsbg484-1

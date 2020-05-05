@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../mandelbrot_pinout.srcs/sources_1/ip/dsp_simple/sim/dsp_simple.vhd" \
+
+nosort
