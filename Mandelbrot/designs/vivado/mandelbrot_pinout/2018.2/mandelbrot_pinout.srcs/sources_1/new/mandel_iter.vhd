@@ -43,9 +43,7 @@ entity mandel_iter is
         z_realDI: in std_logic_vector(SIZE-1 downto 0);-- := "0001100000000000";
         z_imaginaryDI: in std_logic_vector(SIZE-1 downto 0);-- := "0010000000000000";
         z_realDO  : out std_logic_vector(SIZE-1 downto 0);    -- ZN+1
-        z_imaginaryDO : out std_logic_vector(SIZE-1 downto 0); -- ZN+1
-        re_zn2_dbg : out std_logic_vector(SIZE*2-1 downto 0);
-        im_zn2_dbg : out std_logic_vector(SIZE*2-1 downto 0)
+        z_imaginaryDO : out std_logic_vector(SIZE-1 downto 0) -- ZN+1
     );
 end mandel_iter;
 
@@ -75,8 +73,6 @@ signal threshold: unsigned(SIZE-1 downto 0);
 
 begin
     threshold <= shift_left(to_unsigned(4, SIZE),comma);
-    re_zn2_dbg <= re_zn2;
-    im_zn2_dbg <= im_zn2;
     
     square_re_zn: dsp_simple 
     port map(

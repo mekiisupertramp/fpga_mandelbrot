@@ -503,203 +503,203 @@ begin  -- architecture rtl
     -- FPGA User To UBlaze Clock Domain Crossing
     ---------------------------------------------------------------------------
 
-    FpgaUserToUBlazeCDCxB : block is
-    begin  -- block FpgaUserToUBlazeCDCxB
+--    FpgaUserToUBlazeCDCxB : block is
+--    begin  -- block FpgaUserToUBlazeCDCxB
 
-        RdEnFlagColor1xAS : RdEnFlagColor1xS <= '1' when RdEmptyFlagColor1xS = '0' else
-                                                '0';
+--        RdEnFlagColor1xAS : RdEnFlagColor1xS <= '1' when RdEmptyFlagColor1xS = '0' else
+--                                                '0';
 
-        -- BtnCxAS     : BtnCxD(0)  <= BtnCxSI;
-        -- BtnCFallxAS : BtnCFallxS <= BtnCxD(3) and not BtnCxD(2);
-        -- BtnCRisexAS : BtnCRisexS <= not BtnCxD(3) and BtnCxD(2);
+--        -- BtnCxAS     : BtnCxD(0)  <= BtnCxSI;
+--        -- BtnCFallxAS : BtnCFallxS <= BtnCxD(3) and not BtnCxD(2);
+--        -- BtnCRisexAS : BtnCRisexS <= not BtnCxD(3) and BtnCxD(2);
 
-        -- EdgeDetectFDRExG : for i in 0 to 2 generate
+--        -- EdgeDetectFDRExG : for i in 0 to 2 generate
 
-        --     LedsFDRExI : FDRE
-        --         generic map (
-        --             INIT => '0')
-        --         port map (
-        --             Q  => BtnCxD(i + 1),
-        --             C  => ClkVgaxC,
-        --             CE => '1',
-        --             R  => HdmiPllNotLockedxS,
-        --             D  => BtnCxD(i));
+--        --     LedsFDRExI : FDRE
+--        --         generic map (
+--        --             INIT => '0')
+--        --         port map (
+--        --             Q  => BtnCxD(i + 1),
+--        --             C  => ClkVgaxC,
+--        --             CE => '1',
+--        --             R  => HdmiPllNotLockedxS,
+--        --             D  => BtnCxD(i));
 
-        -- end generate EdgeDetectFDRExG;
+--        -- end generate EdgeDetectFDRExG;
 
-        FifoFlagColor1RegPortxI : fifo_regport
-            port map (
-                wr_clk => UBlazeUserClkxC,
-                wr_rst => UBlazePllNotLockedxS,
-                rd_clk => ClkVgaxC,
-                rd_rst => HdmiPllNotLockedxS,
-                din    => FlagColor1RegPortxDN,
-                wr_en  => WrValidDelayedxS,
-                rd_en  => RdEnFlagColor1xS,
-                dout   => RdDataFlagColor1xDN,
-                full   => open,
-                empty  => RdEmptyFlagColor1xS);
+--        FifoFlagColor1RegPortxI : fifo_regport
+--            port map (
+--                wr_clk => UBlazeUserClkxC,
+--                wr_rst => UBlazePllNotLockedxS,
+--                rd_clk => ClkVgaxC,
+--                rd_rst => HdmiPllNotLockedxS,
+--                din    => FlagColor1RegPortxDN,
+--                wr_en  => WrValidDelayedxS,
+--                rd_en  => RdEnFlagColor1xS,
+--                dout   => RdDataFlagColor1xDN,
+--                full   => open,
+--                empty  => RdEmptyFlagColor1xS);
 
-        FifoRegOutxP : process (ClkVgaxC) is
-        begin  -- process FifoRegOutxP
-            --if rising_edge(ClkMandelxC) then
-            if rising_edge(ClkVgaxC) then
-                -- if PllNotLockedxS = '1' then
-                if HdmiPllNotLockedxS = '1' then
-                    RdDataFlagColor1xDP <= x"003a8923";
-                else
-                    RdDataFlagColor1xDP <= RdDataFlagColor1xDP;
+--        FifoRegOutxP : process (ClkVgaxC) is
+--        begin  -- process FifoRegOutxP
+--            --if rising_edge(ClkMandelxC) then
+--            if rising_edge(ClkVgaxC) then
+--                -- if PllNotLockedxS = '1' then
+--                if HdmiPllNotLockedxS = '1' then
+--                    RdDataFlagColor1xDP <= x"003a8923";
+--                else
+--                    RdDataFlagColor1xDP <= RdDataFlagColor1xDP;
 
-                    if RdEmptyFlagColor1xS = '0' then
-                        RdDataFlagColor1xDP <= RdDataFlagColor1xDN;
-                    end if;
-                end if;
-            end if;
-        end process FifoRegOutxP;
+--                    if RdEmptyFlagColor1xS = '0' then
+--                        RdDataFlagColor1xDP <= RdDataFlagColor1xDN;
+--                    end if;
+--                end if;
+--            end if;
+--        end process FifoRegOutxP;
 
-        -- CDCSyncFlagColor1RegPortxI : entity work.cdc_sync
-        --     generic map (
-        --         C_CDC_TYPE     => C_CDC_TYPE,
-        --         C_RESET_STATE  => C_RESET_STATE,
-        --         C_SINGLE_BIT   => C_SINGLE_BIT,
-        --         C_FLOP_INPUT   => C_FLOP_INPUT,
-        --         C_VECTOR_WIDTH => C_VECTOR_WIDTH,
-        --         C_MTBF_STAGES  => C_MTBF_STAGES)
-        --     port map (
-        --         PrimaryClkxCAI     => ClkVgaxC,            --ClkMandelxC,
-        --         PrimaryResetxRNI   => HdmiPllNotLockedxS,  --PllNotLockedxS,
-        --         PrimaryxSI         => BtnCFallxS,
-        --         PrimaryxDI         => (others => '0'),
-        --         PrimaryAckxSO      => open,
-        --         SecondaryClkxCAI   => UBlazeUserClkxC,
-        --         SecondaryResetxRNI => UBlazePllNotLockedxS,
-        --         SecondaryxSO       => BtnCInterruptxS,
-        --         SecondaryxDO       => open);
+--        -- CDCSyncFlagColor1RegPortxI : entity work.cdc_sync
+--        --     generic map (
+--        --         C_CDC_TYPE     => C_CDC_TYPE,
+--        --         C_RESET_STATE  => C_RESET_STATE,
+--        --         C_SINGLE_BIT   => C_SINGLE_BIT,
+--        --         C_FLOP_INPUT   => C_FLOP_INPUT,
+--        --         C_VECTOR_WIDTH => C_VECTOR_WIDTH,
+--        --         C_MTBF_STAGES  => C_MTBF_STAGES)
+--        --     port map (
+--        --         PrimaryClkxCAI     => ClkVgaxC,            --ClkMandelxC,
+--        --         PrimaryResetxRNI   => HdmiPllNotLockedxS,  --PllNotLockedxS,
+--        --         PrimaryxSI         => BtnCFallxS,
+--        --         PrimaryxDI         => (others => '0'),
+--        --         PrimaryAckxSO      => open,
+--        --         SecondaryClkxCAI   => UBlazeUserClkxC,
+--        --         SecondaryResetxRNI => UBlazePllNotLockedxS,
+--        --         SecondaryxSO       => BtnCInterruptxS,
+--        --         SecondaryxDO       => open);
 
-    end block FpgaUserToUBlazeCDCxB;
+--    end block FpgaUserToUBlazeCDCxB;
 
     -- UBlaze Clock Domain
     ---------------------------------------------------------------------------
 
-    UBlazeCDxB : block is
+--    UBlazeCDxB : block is
 
-        -- Signals
-        signal ClkSys100MhzBufgxC : std_logic                                    := '0';
-        signal LedsxD             : std_logic_vector((C_GPIO_SIZE - 1) downto 0) := (others => '0');
+--        -- Signals
+--        signal ClkSys100MhzBufgxC : std_logic                                    := '0';
+--        signal LedsxD             : std_logic_vector((C_GPIO_SIZE - 1) downto 0) := (others => '0');
 
-    begin  -- block UBlazeCDxB
+--    begin  -- block UBlazeCDxB
 
-        UBlazePllNotLockedxAS : UBlazePllNotLockedxS <= not UBlazePllLockedxS;
+--        UBlazePllNotLockedxAS : UBlazePllNotLockedxS <= not UBlazePllLockedxS;
 
-        LedsFDRExG : for i in 0 to (C_GPIO_SIZE - 1) generate
+--        LedsFDRExG : for i in 0 to (C_GPIO_SIZE - 1) generate
 
-            LedsFDRExI : FDRE
-                generic map (
-                    INIT => '0')
-                port map (
-                    Q  => LedxDO(i),
-                    C  => UBlazeUserClkxC,
-                    CE => '1',
-                    R  => UBlazePllNotLockedxS,
-                    D  => LedsxD(i));
+--            LedsFDRExI : FDRE
+--                generic map (
+--                    INIT => '0')
+--                port map (
+--                    Q  => LedxDO(i),
+--                    C  => UBlazeUserClkxC,
+--                    CE => '1',
+--                    R  => UBlazePllNotLockedxS,
+--                    D  => LedsxD(i));
 
-        end generate LedsFDRExG;
+--        end generate LedsFDRExG;
 
-        BUFGClkSysToClkMandelxI : BUFG
-            port map (
-                O => ClkSys100MhzBufgxC,
-                I => ClkSys100MhzxCI);
+--        BUFGClkSysToClkMandelxI : BUFG
+--            port map (
+--                O => ClkSys100MhzBufgxC,
+--                I => ClkSys100MhzxCI);
 
-        UblazeSoPCxI : entity work.ublaze_core
-            generic map (
-                C_GPIO_SIZE      => C_GPIO_SIZE,
-                C_AXI4_DATA_SIZE => C_AXI4_DATA_SIZE,
-                C_AXI4_ADDR_SIZE => C_AXI4_ADDR_SIZE)
-            port map (
-                SysClkxCI    => ClkSys100MhzBufgxC,
-                UserClkxCO   => UBlazeUserClkxC,
-                ResetxRNI    => ResetxRNI,
-                PllLockedxSO => UBlazePllLockedxS,
-                GpioxDO      => LedsxD,
-                WrDataxDO    => WrDataxD,
-                WrAddrxDO    => WrAddrxD,
-                WrValidxSO   => WrValidxS,
-                RdDataxDI    => RdDataxD,
-                RdAddrxDO    => RdAddrxD,
-                RdValidxSO   => RdValidxS,
-                InterruptxSI => '0');
+--        UblazeSoPCxI : entity work.ublaze_core
+--            generic map (
+--                C_GPIO_SIZE      => C_GPIO_SIZE,
+--                C_AXI4_DATA_SIZE => C_AXI4_DATA_SIZE,
+--                C_AXI4_ADDR_SIZE => C_AXI4_ADDR_SIZE)
+--            port map (
+--                SysClkxCI    => ClkSys100MhzBufgxC,
+--                UserClkxCO   => UBlazeUserClkxC,
+--                ResetxRNI    => ResetxRNI,
+--                PllLockedxSO => UBlazePllLockedxS,
+--                GpioxDO      => LedsxD,
+--                WrDataxDO    => WrDataxD,
+--                WrAddrxDO    => WrAddrxD,
+--                WrValidxSO   => WrValidxS,
+--                RdDataxDI    => RdDataxD,
+--                RdAddrxDO    => RdAddrxD,
+--                RdValidxSO   => RdValidxS,
+--                InterruptxSI => '0');
 
-        WrValidFDRExI : FDRE
-            generic map (
-                INIT => '0')
-            port map (
-                Q  => WrValidDelayedxS,
-                C  => UBlazeUserClkxC,
-                CE => '1',
-                R  => UBlazePllNotLockedxS,
-                D  => WrValidxS);
+--        WrValidFDRExI : FDRE
+--            generic map (
+--                INIT => '0')
+--            port map (
+--                Q  => WrValidDelayedxS,
+--                C  => UBlazeUserClkxC,
+--                CE => '1',
+--                R  => UBlazePllNotLockedxS,
+--                D  => WrValidxS);
 
-        RegBankxB : block is
-        begin  -- block RegBankxB
+--        RegBankxB : block is
+--        begin  -- block RegBankxB
 
-            WriteRegPortxP : process (FlagColor1RegPortxDP, FlagColor2RegPortxDP,
-                                      FlagColor3RegPortxDP, InterruptRegPortxDP,
-                                      WrAddrxD, WrDataxD, WrValidxS) is
-            begin  -- process WriteRegPortxP
-                InterruptRegPortxDN  <= InterruptRegPortxDP;
-                FlagColor1RegPortxDN <= FlagColor1RegPortxDP;
-                FlagColor2RegPortxDN <= FlagColor2RegPortxDP;
-                FlagColor3RegPortxDN <= FlagColor3RegPortxDP;
+--            WriteRegPortxP : process (FlagColor1RegPortxDP, FlagColor2RegPortxDP,
+--                                      FlagColor3RegPortxDP, InterruptRegPortxDP,
+--                                      WrAddrxD, WrDataxD, WrValidxS) is
+--            begin  -- process WriteRegPortxP
+--                InterruptRegPortxDN  <= InterruptRegPortxDP;
+--                FlagColor1RegPortxDN <= FlagColor1RegPortxDP;
+--                FlagColor2RegPortxDN <= FlagColor2RegPortxDP;
+--                FlagColor3RegPortxDN <= FlagColor3RegPortxDP;
 
-                if WrValidxS = '1' then
-                    case WrAddrxD is
-                        when x"000" => InterruptRegPortxDN  <= WrDataxD;
-                        when x"004" => InterruptRegPortxDN  <= InterruptRegPortxDP or WrDataxD;
-                        when x"008" => InterruptRegPortxDN  <= InterruptRegPortxDP and not WrDataxD;
-                        when x"00C" => FlagColor1RegPortxDN <= WrDataxD;
-                        when x"010" => FlagColor2RegPortxDN <= WrDataxD;
-                        when x"014" => FlagColor3RegPortxDN <= WrDataxD;
-                        when others => null;
-                    end case;
-                end if;
-            end process WriteRegPortxP;
+--                if WrValidxS = '1' then
+--                    case WrAddrxD is
+--                        when x"000" => InterruptRegPortxDN  <= WrDataxD;
+--                        when x"004" => InterruptRegPortxDN  <= InterruptRegPortxDP or WrDataxD;
+--                        when x"008" => InterruptRegPortxDN  <= InterruptRegPortxDP and not WrDataxD;
+--                        when x"00C" => FlagColor1RegPortxDN <= WrDataxD;
+--                        when x"010" => FlagColor2RegPortxDN <= WrDataxD;
+--                        when x"014" => FlagColor3RegPortxDN <= WrDataxD;
+--                        when others => null;
+--                    end case;
+--                end if;
+--            end process WriteRegPortxP;
 
-            ReadRegPortxP : process (UBlazePllNotLockedxS, UBlazeUserClkxC) is
-            begin  -- process ReadRegPortxP
-                if UBlazePllNotLockedxS = '1' then
-                    RdDataxD <= (others => '0');
-                elsif rising_edge(UBlazeUserClkxC) then
-                    RdDataxD <= (others => '0');
+--            ReadRegPortxP : process (UBlazePllNotLockedxS, UBlazeUserClkxC) is
+--            begin  -- process ReadRegPortxP
+--                if UBlazePllNotLockedxS = '1' then
+--                    RdDataxD <= (others => '0');
+--                elsif rising_edge(UBlazeUserClkxC) then
+--                    RdDataxD <= (others => '0');
 
-                    if RdValidxS = '1' then
-                        case RdAddrxD is
-                            when x"000" => RdDataxD <= InterruptRegPortxDP;
-                            when x"00C" => RdDataxD <= FlagColor1RegPortxDP;
-                            when x"010" => RdDataxD <= FlagColor2RegPortxDP;
-                            when x"014" => RdDataxD <= FlagColor3RegPortxDP;
-                            when others => RdDataxD <= (others => '0');
-                        end case;
-                    end if;
-                end if;
-            end process ReadRegPortxP;
+--                    if RdValidxS = '1' then
+--                        case RdAddrxD is
+--                            when x"000" => RdDataxD <= InterruptRegPortxDP;
+--                            when x"00C" => RdDataxD <= FlagColor1RegPortxDP;
+--                            when x"010" => RdDataxD <= FlagColor2RegPortxDP;
+--                            when x"014" => RdDataxD <= FlagColor3RegPortxDP;
+--                            when others => RdDataxD <= (others => '0');
+--                        end case;
+--                    end if;
+--                end if;
+--            end process ReadRegPortxP;
 
-            RegBankxP : process (UBlazePllLockedxS, UBlazeUserClkxC) is
-            begin  -- process RegBankxP
-                if UBlazePllNotLockedxS = '1' then
-                    InterruptRegPortxDP  <= (others => '0');
-                    FlagColor1RegPortxDP <= x"003a8923";
-                    FlagColor2RegPortxDP <= (others => '0');
-                    FlagColor3RegPortxDP <= (others => '0');
-                elsif rising_edge(UBlazeUserClkxC) then
-                    InterruptRegPortxDP  <= InterruptRegPortxDN;
-                    FlagColor1RegPortxDP <= FlagColor1RegPortxDN;
-                    FlagColor2RegPortxDP <= FlagColor2RegPortxDN;
-                    FlagColor3RegPortxDP <= FlagColor3RegPortxDN;
-                end if;
-            end process RegBankxP;
+--            RegBankxP : process (UBlazePllLockedxS, UBlazeUserClkxC) is
+--            begin  -- process RegBankxP
+--                if UBlazePllNotLockedxS = '1' then
+--                    InterruptRegPortxDP  <= (others => '0');
+--                    FlagColor1RegPortxDP <= x"003a8923";
+--                    FlagColor2RegPortxDP <= (others => '0');
+--                    FlagColor3RegPortxDP <= (others => '0');
+--                elsif rising_edge(UBlazeUserClkxC) then
+--                    InterruptRegPortxDP  <= InterruptRegPortxDN;
+--                    FlagColor1RegPortxDP <= FlagColor1RegPortxDN;
+--                    FlagColor2RegPortxDP <= FlagColor2RegPortxDN;
+--                    FlagColor3RegPortxDP <= FlagColor3RegPortxDN;
+--                end if;
+--            end process RegBankxP;
 
-        end block RegBankxB;
+--        end block RegBankxB;
 
-    end block UBlazeCDxB;
+--    end block UBlazeCDxB;
 
 end architecture rtl;

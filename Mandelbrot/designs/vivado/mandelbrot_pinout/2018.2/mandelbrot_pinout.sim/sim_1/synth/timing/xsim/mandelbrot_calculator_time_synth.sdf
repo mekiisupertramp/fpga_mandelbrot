@@ -1,7 +1,7 @@
 (DELAYFILE 
 (SDFVERSION "3.0" )
 (DESIGN "mandelbrot_calculator")
-(DATE "Tue May  5 19:05:48 2020")
+(DATE "Tue May 12 17:59:46 2020")
 (VENDOR "XILINX")
 (PROGRAM "Vivado")
 (VERSION "2019.2")
