@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use ieee.numeric_std.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -67,16 +68,6 @@ generic(
     );
  end component;
  
---  signal clk: std_logic := '0';
---  signal reset: std_logic := '0';
---  signal ready: std_logic := '0';
---  signal start: std_logic := '0';
---  signal finish: std_logic := '0';
-
-
-
-
--- constant clk_period : time := 10 ns;
 
 type state_t is(s0,s1,s2);
 signal state: state_t := s0;
@@ -84,8 +75,6 @@ signal state: state_t := s0;
 signal diamReached:  std_logic := '0';
 signal iter_sig: unsigned(SIZE-1 downto 0);
 
---signal c_real_sig: std_logic_vector(SIZE-1 downto 0);
---signal c_imag_sig: std_logic_vector(SIZE-1 downto 0);
 signal z_realDI_sig: std_logic_vector(SIZE-1 downto 0);
 signal z_imagDI_sig: std_logic_vector(SIZE-1 downto 0);
 signal z_realDO_sig: std_logic_vector(SIZE-1 downto 0);
@@ -111,7 +100,7 @@ mandelbrot: mandel_iter
     if(rst = '1') then
       finished <= '0';
       ready <= '1';
-      z_realDI_sig <= (others => '0);
+      z_realDI_sig <= (others => '0');
       z_imagDI_sig <= (others => '0');
       iter_sig <= (others => '0');
     elsif rising_edge(clk) then
@@ -143,41 +132,8 @@ mandelbrot: mandel_iter
   end process;
 
   iterations <= std_logic_vector(iter_sig);
-    
-  -- clock process, only for debug purpose 
-  -- clk_proc: process
-  -- begin
-  --   clk <= '0';
-  --   wait for clk_period/2;
-  --   clk <= '1';
-  --   wait for clk_period/2;
-  -- end process;
-  
-  
-  -- control process
-  -- ctrl: process
-  -- begin
-  --   c_r <= (others => '0');
-  --   c_i <= (others => '0');
-  --   z_rDI <= (others => '0');
-  --   z_iDI <= (others => '0');
-  --   wait for clk_period*2;
-  --   c_r <= "0000000000001100";
-  --   c_i <= "0000000000001100";
-  --   z_rDI <= "0001100000000000"; --1.5
-  --   z_iDI <= "0010000000000000"; -- 2
-  --   wait for clk_period*2;
-  --   c_r <= "0100100001001100";
-  --   c_i <= "0001000010101100";
-  --   z_rDI <= "0001100000101010"; --1.5
-  --   z_iDI <= "0010000100011100"; -- 2
-  --   wait for clk_period*2;
-  --   c_r <= "0000100000000000";
-  --   c_i <= "0000100000000000";
-  --   z_rDI <= "0010000000000000";
-  --   z_iDI <= "0001000000000000";
-  --   wait for clk_period*2;
-  -- end process;
+  z_real <= z_realDO_sig;
+  z_imaginary <= z_imagDO_sig;
 
 
 end Behavioral;

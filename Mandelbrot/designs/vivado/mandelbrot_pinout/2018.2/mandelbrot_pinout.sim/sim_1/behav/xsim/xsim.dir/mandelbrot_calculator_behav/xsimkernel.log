@@ -1,4 +1,7 @@
-Running: xsim.dir/mandelbrot_calculator_behav/xsimk -simmode gui -wdb mandelbrot_calculator_behav.wdb -simrunnum 0 -socket 36453
+Running: xsim.dir/mandelbrot_calculator_behav/xsimk -simmode gui -wdb mandelbrot_calculator_behav.wdb -simrunnum 0 -socket 35472
 Design successfully loaded
-Design Loading Memory Usage: 44376 KB (Peak: 44376 KB)
-Design Loading CPU Usage: 30 ms
+Design Loading Memory Usage: 44380 KB (Peak: 44380 KB)
+Design Loading CPU Usage: 20 ms
+Simulation completed
+Simulation Memory Usage: 134232 KB (Peak: 183652 KB)
+Simulation CPU Usage: 30 ms

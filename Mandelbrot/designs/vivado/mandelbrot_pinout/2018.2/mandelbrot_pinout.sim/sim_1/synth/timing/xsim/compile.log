@@ -1,19 +1,24 @@
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.sim/sim_1/synth/timing/xsim/mandelbrot_calculator_time_synth.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module dsp_add_mult_add
 INFO: [VRFC 10-311] analyzing module dsp_simple
-INFO: [VRFC 10-311] analyzing module dsp_simple_HD2
+INFO: [VRFC 10-311] analyzing module dsp_simple_HD14
 INFO: [VRFC 10-311] analyzing module mandel_iter
 INFO: [VRFC 10-311] analyzing module mandelbrot_calculator
+INFO: [VRFC 10-311] analyzing module tb_mandelbrot
 INFO: [VRFC 10-311] analyzing module dsp_add_mult_add_xbip_dsp48_macro_v3_0_17
 INFO: [VRFC 10-311] analyzing module dsp_simple_xbip_dsp48_macro_v3_0_17
-INFO: [VRFC 10-311] analyzing module dsp_simple_xbip_dsp48_macro_v3_0_17_HD3
+INFO: [VRFC 10-311] analyzing module dsp_simple_xbip_dsp48_macro_v3_0_17_HD15
 INFO: [VRFC 10-311] analyzing module dsp_add_mult_add_xbip_dsp48_macro_synth
 INFO: [VRFC 10-311] analyzing module dsp_add_mult_add_xbip_dsp48_macro_v3_0_17_viv
 INFO: [VRFC 10-311] analyzing module dsp_add_mult_add_xbip_dsp48e1_wrapper_v3_0
 INFO: [VRFC 10-311] analyzing module dsp_simple_xbip_dsp48_macro_synth
-INFO: [VRFC 10-311] analyzing module dsp_simple_xbip_dsp48_macro_synth_HD5
+INFO: [VRFC 10-311] analyzing module dsp_simple_xbip_dsp48_macro_synth_HD17
 INFO: [VRFC 10-311] analyzing module dsp_simple_xbip_dsp48_macro_v3_0_17_viv
-INFO: [VRFC 10-311] analyzing module dsp_simple_xbip_dsp48_macro_v3_0_17_viv_HD4
+INFO: [VRFC 10-311] analyzing module dsp_simple_xbip_dsp48_macro_v3_0_17_viv_HD16
 INFO: [VRFC 10-311] analyzing module dsp_simple_xbip_dsp48e1_wrapper_v3_0
-INFO: [VRFC 10-311] analyzing module dsp_simple_xbip_dsp48e1_wrapper_v3_0_HD6
+INFO: [VRFC 10-311] analyzing module dsp_simple_xbip_dsp48e1_wrapper_v3_0_HD18
 INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/new/mandel_iter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mandel_iter'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/new/mandelbrot_calculator.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mandelbrot_calculator'

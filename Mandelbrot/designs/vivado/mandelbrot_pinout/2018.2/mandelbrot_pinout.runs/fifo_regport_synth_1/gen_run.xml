@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="fifo_regport_synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1588673911">
-  <File Type="REPORTS-TCL" Name="fifo_regport_reports.tcl"/>
   <File Type="PA-TCL" Name="fifo_regport.tcl"/>
   <File Type="RDS-DCP" Name="fifo_regport.dcp"/>
+  <File Type="REPORTS-TCL" Name="fifo_regport_reports.tcl"/>
   <File Type="RDS-RDS" Name="fifo_regport.vds"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/fifo_regport">
     <File Path="$PSRCDIR/sources_1/ip/fifo_regport/fifo_regport.xci">

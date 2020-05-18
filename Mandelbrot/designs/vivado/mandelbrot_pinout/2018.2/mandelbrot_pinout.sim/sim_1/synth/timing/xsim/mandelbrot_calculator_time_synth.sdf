@@ -1,7 +1,7 @@
 (DELAYFILE 
 (SDFVERSION "3.0" )
-(DESIGN "mandelbrot_calculator")
-(DATE "Tue May 12 17:59:46 2020")
+(DESIGN "tb_mandelbrot")
+(DATE "Mon May 18 19:26:55 2020")
 (VENDOR "XILINX")
 (PROGRAM "Vivado")
 (VERSION "2019.2")
@@ -9,7 +9,7 @@
 (TIMESCALE 1ps)
 (CELL 
   (CELLTYPE "DSP48E1")
-  (INSTANCE mandelbrot/im_zn_futur/U0/i_synth/i_synth_option\.i_synth_model/opt_7series\.i_uniwrap/i_primitive)
+  (INSTANCE mandelbrot/mandelbrot/im_zn_futur/U0/i_synth/i_synth_option\.i_synth_model/opt_7series\.i_uniwrap/i_primitive)
   (DELAY 
     (ABSOLUTE 
       (IOPATH CARRYIN MULTSIGNOUT (809.0:1376.0:1376.0) (809.0:1376.0:1376.0))
@@ -78,7 +78,7 @@
 )
 (CELL 
   (CELLTYPE "DSP48E1")
-  (INSTANCE mandelbrot/square_im_zn/U0/i_synth/i_synth_option\.i_synth_model/opt_7series\.i_uniwrap/i_primitive)
+  (INSTANCE mandelbrot/mandelbrot/square_im_zn/U0/i_synth/i_synth_option\.i_synth_model/opt_7series\.i_uniwrap/i_primitive)
   (DELAY 
     (ABSOLUTE 
       (IOPATH CARRYIN MULTSIGNOUT (809.0:1376.0:1376.0) (809.0:1376.0:1376.0))
@@ -142,7 +142,7 @@
 )
 (CELL 
   (CELLTYPE "DSP48E1")
-  (INSTANCE mandelbrot/square_re_zn/U0/i_synth/i_synth_option\.i_synth_model/opt_7series\.i_uniwrap/i_primitive)
+  (INSTANCE mandelbrot/mandelbrot/square_re_zn/U0/i_synth/i_synth_option\.i_synth_model/opt_7series\.i_uniwrap/i_primitive)
   (DELAY 
     (ABSOLUTE 
       (IOPATH CARRYIN MULTSIGNOUT (809.0:1376.0:1376.0) (809.0:1376.0:1376.0))
