@@ -1,8 +1,9 @@
 Vivado Simulator 2019.2
 Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
-Running: /opt/Xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab -wto 7a998fe0abfe46918ad5cbba8b012036 --incr --debug typical --relax --mt 8 -L xbip_dsp48_wrapper_v3_0_4 -L xbip_utils_v3_0_10 -L xbip_pipe_v3_0_6 -L xbip_dsp48_macro_v3_0_17 -L xil_defaultlib -L secureip -L xpm --snapshot tb_mandelbrot_behav xil_defaultlib.tb_mandelbrot -log elaborate.log 
+Running: /opt/Xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab -wto 7a998fe0abfe46918ad5cbba8b012036 --incr --debug typical --relax --mt 8 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot mandelbrot_pinout_behav xil_defaultlib.mandelbrot_pinout xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
+Pass Through NonSizing Optimizer
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -11,33 +12,36 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
-Compiling package xbip_utils_v3_0_10.xbip_utils_v3_0_10_pkg
-Compiling package xbip_dsp48_macro_v3_0_17.xbip_dsp48_macro_v3_0_17_viv_com...
-Compiling package xbip_dsp48_macro_v3_0_17.xbip_dsp48_macro_v3_0_17_pkg
 Compiling package unisim.vcomponents
+Compiling package xil_defaultlib.hdmi_interface_pkg
 Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
 Compiling package ieee.vital_timing
 Compiling package ieee.vital_primitives
 Compiling package unisim.vpkg
-Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_width=16...]
-Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(acascreg=0,adreg=0,alum...]
-Compiling architecture synth of entity xbip_dsp48_wrapper_v3_0_4.xbip_dsp48e1_wrapper_v3_0 [\xbip_dsp48e1_wrapper_v3_0(acasc...]
-Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_width=18...]
-Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_width=48...]
-Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_width=24...]
-Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(1,1)(1,1)\]
-Compiling architecture synth of entity xbip_dsp48_macro_v3_0_17.xbip_dsp48_macro_synth [\xbip_dsp48_macro_synth(c_xdevic...]
-Compiling architecture synth of entity xbip_dsp48_macro_v3_0_17.xbip_dsp48_macro_v3_0_17_viv [\xbip_dsp48_macro_v3_0_17_viv(c_...]
-Compiling architecture xilinx of entity xbip_dsp48_macro_v3_0_17.xbip_dsp48_macro_v3_0_17 [\xbip_dsp48_macro_v3_0_17(c_xdev...]
-Compiling architecture dsp_simple_arch of entity xil_defaultlib.dsp_simple [dsp_simple_default]
-Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(acascreg=0,adreg=0,alum...]
-Compiling architecture synth of entity xbip_dsp48_wrapper_v3_0_4.xbip_dsp48e1_wrapper_v3_0 [\xbip_dsp48e1_wrapper_v3_0(acasc...]
-Compiling architecture synth of entity xbip_dsp48_macro_v3_0_17.xbip_dsp48_macro_synth [\xbip_dsp48_macro_synth(c_xdevic...]
-Compiling architecture synth of entity xbip_dsp48_macro_v3_0_17.xbip_dsp48_macro_v3_0_17_viv [\xbip_dsp48_macro_v3_0_17_viv(c_...]
-Compiling architecture xilinx of entity xbip_dsp48_macro_v3_0_17.xbip_dsp48_macro_v3_0_17 [\xbip_dsp48_macro_v3_0_17(c_xdev...]
-Compiling architecture dsp_add_mult_add_arch of entity xil_defaultlib.dsp_add_mult_add [dsp_add_mult_add_default]
-Compiling architecture behavioral of entity xil_defaultlib.mandel_iter [mandel_iter_default]
-Compiling architecture behavioral of entity xil_defaultlib.mandelbrot_calculator [\mandelbrot_calculator(max_iter=...]
-Compiling architecture behavioral of entity xil_defaultlib.tb_mandelbrot
-Built simulation snapshot tb_mandelbrot_behav
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling architecture bufg_v of entity unisim.BUFG [bufg_default]
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.25...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.clk_vga_hdmi_1024x600_clk_wiz
+Compiling module xil_defaultlib.clk_vga_hdmi_1024x600
+Compiling architecture behavioural of entity xil_defaultlib.vga_stripes [\vga_stripes(c_vga_config=("0000...]
+Compiling architecture behavioural of entity xil_defaultlib.vga_controler [\vga_controler(c_vga_config=("00...]
+Compiling architecture rtl of entity xil_defaultlib.vga [\vga(c_vga_config=("000001000000...]
+Compiling architecture behavioural of entity xil_defaultlib.tmds_encoder [tmds_encoder_default]
+Compiling architecture oserdese2_v of entity unisim.OSERDESE2 [\OSERDESE2(data_width=10,init_oq...]
+Compiling architecture oserdese2_v of entity unisim.OSERDESE2 [\OSERDESE2(data_width=10,init_oq...]
+Compiling architecture rtl of entity xil_defaultlib.serializer_10_to_1 [serializer_10_to_1_default]
+Compiling architecture obufds_v of entity unisim.OBUFDS [\OBUFDS(iostandard="TMDS_33",sle...]
+Compiling architecture rtl of entity xil_defaultlib.vga_to_hdmi [vga_to_hdmi_default]
+Compiling architecture behavioural of entity xil_defaultlib.hdmi [\hdmi(c_vga_config=("00000100000...]
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_axi_regs_fwd_v8_4(C_DATA...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.mandel_blk_mem
+Compiling architecture rtl of entity xil_defaultlib.mandelbrot_pinout
+Built simulation snapshot mandelbrot_pinout_behav

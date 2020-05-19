@@ -1,0 +1,16 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../../../../ips/hw/hdmi/src/hdl_pkg/hdmi_interface_pkg.vhd" \
+
+vhdl2008 xil_defaultlib  \
+"../../../../../../../../ips/hw/hdmi/src/hdl/vga_stripes.vhd" \
+"../../../../../../../../ips/hw/hdmi/src/hdl/vga_controler.vhd" \
+"../../../../../../../../ips/hw/hdmi/src/hdl/vga.vhd" \
+"../../../../../../../../ips/hw/hdmi/src/hdl/tmds_encoder.vhd" \
+"../../../../../../../../ips/hw/hdmi/src/hdl/serializer_10_to_1.vhd" \
+"../../../../../../../../ips/hw/hdmi/src/hdl/vga_to_hdmi.vhd" \
+"../../../../../../../../ips/hw/hdmi/src/hdl/hdmi.vhd" \
+"../../../../../../../hw/mandelbrot_pinout/src/hdl/mandelbrot_pinout.vhd" \
+
+# Do not sort compile order
+nosort

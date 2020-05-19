@@ -1,2 +1,37 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/new/tb_mandelbrot.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'tb_mandelbrot'
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/mandel_blk_mem/sim/mandel_blk_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mandel_blk_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/clk_vga_hdmi_1024x768/clk_vga_hdmi_1024x768_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_vga_hdmi_1024x768_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/clk_vga_hdmi_1024x768/clk_vga_hdmi_1024x768.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_vga_hdmi_1024x768
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/clk_vga_hdmi_800x600/clk_vga_hdmi_800x600_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_vga_hdmi_800x600_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/clk_vga_hdmi_800x600/clk_vga_hdmi_800x600.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_vga_hdmi_800x600
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/clk_vga_hdmi_640x480/clk_vga_hdmi_640x480_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_vga_hdmi_640x480_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/clk_vga_hdmi_640x480/clk_vga_hdmi_640x480.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_vga_hdmi_640x480
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_vga_hdmi_1024x600_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_vga_hdmi_1024x600
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl_pkg/hdmi_interface_pkg.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl/vga_stripes.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'vga_stripes'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl/vga_controler.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'vga_controler'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl/vga.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'vga'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl/tmds_encoder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tmds_encoder'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl/serializer_10_to_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'serializer_10_to_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl/vga_to_hdmi.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'vga_to_hdmi'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl/hdmi.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'hdmi'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/hw/mandelbrot_pinout/src/hdl/mandelbrot_pinout.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mandelbrot_pinout'

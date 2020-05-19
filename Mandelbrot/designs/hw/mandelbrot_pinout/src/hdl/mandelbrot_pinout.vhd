@@ -173,6 +173,38 @@ architecture rtl of mandelbrot_pinout is
             DataxDO      : out std_logic_vector(((C_PIXEL_SIZE * 3) - 1) downto 0);
             Color1xDI    : in  std_logic_vector(((C_PIXEL_SIZE * 3) - 1) downto 0));
     end component image_generator;
+    
+    component mandelbrot_calculator is
+        generic(
+            comma    : integer := 12;
+            max_iter : integer := 100;
+            SIZE     : integer := 16);
+        port (
+            clk: in std_logic;
+            rst: in std_logic;
+            ready: out std_logic;
+            start: in std_logic;
+            finished: out std_logic;
+            c_real: in std_logic_vector(SIZE-1 downto 0);
+            c_imaginary: in std_logic_vector(SIZE-1 downto 0);
+            z_real: out std_logic_vector(SIZE-1 downto 0);
+            z_imaginary: out std_logic_vector(SIZE-1 downto 0);
+            iterations: out std_logic_vector(SIZE-1 downto 0));
+    end component mandelbrot_calculator;
+    
+    COMPONENT mandel_blk_mem
+      PORT (
+        clka : IN STD_LOGIC;
+        ena : IN STD_LOGIC;
+        wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+        addra : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
+        dina : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+        clkb : IN STD_LOGIC;
+        enb : IN STD_LOGIC;
+        addrb : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
+        doutb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+      );
+    END COMPONENT;
 
     -- component bram_video_memory_wauto_dauto_rdclk1_wrclk1
     --     port (
@@ -277,6 +309,14 @@ architecture rtl of mandelbrot_pinout is
     signal FlagColor1RegPortxDN : std_logic_vector((C_AXI4_DATA_SIZE - 1) downto 0) := (others => '0');
     signal FlagColor2RegPortxDN : std_logic_vector((C_AXI4_DATA_SIZE - 1) downto 0) := (others => '0');
     signal FlagColor3RegPortxDN : std_logic_vector((C_AXI4_DATA_SIZE - 1) downto 0) := (others => '0');
+    
+    
+    signal MandelAdrA_Sig : std_logic_vector(19 DOWNTO 0) := (others => '0');
+    signal MandelAdrB_Sig : std_logic_vector(19 DOWNTO 0) := (others => '0');
+    signal MandelDA_Sig :   std_logic_vector(7 DOWNTO 0) := (others => '0');
+    signal MandelDB_Sig :   std_logic_vector(7 DOWNTO 0) := (others => '0');
+    
+    signal adrACounter: unsigned(19 downto 0) := (others => '0');
 
 begin  -- architecture rtl
 
@@ -458,20 +498,47 @@ begin  -- architecture rtl
         --         PllLockedxSO    => PllLockedxS,
         --         ClkSys100MhzxCI => ClkSys100MhzBufgxC);
 
-        ImageGeneratorxI : entity work.image_generator
-            generic map (
-                C_DATA_SIZE  => C_DATA_SIZE,
-                C_PIXEL_SIZE => C_PIXEL_SIZE,
-                C_VGA_CONFIG => C_VGA_CONFIG)
-            port map (
-                ClkVgaxCI    => ClkVgaxC,            --ClkMandelxC,
-                RstxRAI      => HdmiPllNotLockedxS,  --PllNotLockedxS,
-                PllLockedxSI => HdmiPllLockedxS,     --PllLockedxD(0),
-                HCountxDI    => HCountxD,            --HCountIntxD,
-                VCountxDI    => VCountxD,            --VCountIntxD,
-                VidOnxSI     => VidOnxS,             --'1',
-                DataxDO      => DataImGen2HDMIxD,    --DataImGen2BramMVxD,
-                Color1xDI    => RdDataFlagColor1xDP(((C_PIXEL_SIZE * 3) - 1) downto 0));
+--        ImageGeneratorxI : entity work.image_generator
+--            generic map (
+--                C_DATA_SIZE  => C_DATA_SIZE,
+--                C_PIXEL_SIZE => C_PIXEL_SIZE,
+--                C_VGA_CONFIG => C_VGA_CONFIG)
+--            port map (
+--                ClkVgaxCI    => ClkVgaxC,            --ClkMandelxC,
+--                RstxRAI      => HdmiPllNotLockedxS,  --PllNotLockedxS,
+--                PllLockedxSI => HdmiPllLockedxS,     --PllLockedxD(0),
+--                HCountxDI    => HCountxD,            --HCountIntxD,
+--                VCountxDI    => VCountxD,            --VCountIntxD,
+--                VidOnxSI     => VidOnxS,             --'1',
+--                DataxDO      => DataImGen2HDMIxD,    --DataImGen2BramMVxD,
+--                Color1xDI    => RdDataFlagColor1xDP(((C_PIXEL_SIZE * 3) - 1) downto 0));
+                
+        ---DataImGen2HDMIxD <= (((C_PIXEL_SIZE * 3) - 1) downto MandelDB_Sig'length*2 => '0') & MandelDB_Sig & MandelDB_Sig;
+        DataImGen2HDMIxD <= MandelDB_Sig & "00000000" & MandelDB_Sig;
+        MandelAdrA_Sig <= std_logic_vector(adrACounter);
+        MandelAdrB_Sig <= std_logic_vector(resize(unsigned(HCountxD)+(unsigned(VCountxD)*1024),MandelAdrB_Sig'length));
+        
+        -- populate BRAM with random image
+        process(ClkVgaxC)
+        begin
+            if rising_edge(ClkVgaxC) then
+                adrACounter <= (adrACounter+1) mod 614400;
+                MandelDA_Sig <= "10110110";
+            end if;
+        end process;
+        
+        Mandelbrot_memory: mandel_blk_mem
+        port map(
+            clka  => ClkVgaxC,
+            ena   => '1',
+            wea   => (others => '1'),
+            addra => MandelAdrA_Sig,
+            dina  => MandelDA_Sig,
+            clkb  => ClkVgaxC,
+            enb   => VidOnxS,
+            addrb => MandelAdrB_Sig,
+            doutb => MandelDB_Sig
+        );
 
         -- HVCountIntxP : process (all) is
         -- begin  -- process HVCountxP

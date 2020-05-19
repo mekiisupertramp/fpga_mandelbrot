@@ -36,4 +36,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log tb_mandelbrot.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source tb_mandelbrot.tcl
+EAStep vivado -log mandelbrot_pinout.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source mandelbrot_pinout.tcl

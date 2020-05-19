@@ -1,86 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1589824172">
-  <File Type="VDS-TIMING-PB" Name="tb_mandelbrot_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="tb_mandelbrot_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="tb_mandelbrot.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="tb_mandelbrot_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="tb_mandelbrot_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="tb_mandelbrot_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="tb_mandelbrot.vds"/>
-  <File Type="REPORTS-TCL" Name="tb_mandelbrot_reports.tcl"/>
-  <File Type="PA-TCL" Name="tb_mandelbrot.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1589909099">
+  <File Type="VDS-TIMING-PB" Name="mandelbrot_pinout_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="mandelbrot_pinout_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="mandelbrot_pinout.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="mandelbrot_pinout_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="mandelbrot_pinout_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="mandelbrot_pinout_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="mandelbrot_pinout.vds"/>
+  <File Type="REPORTS-TCL" Name="mandelbrot_pinout_reports.tcl"/>
+  <File Type="PA-TCL" Name="mandelbrot_pinout.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/mandel_iter.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/mandelbrot_calculator.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/tb_mandelbrot.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../../../../ips/hw/hdmi/src/hdl_pkg/hdmi_interface_pkg.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../ips/hw/hdmi/src/hdl/vga_stripes.vhd">
       <FileInfo SFType="VHDL2008">
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../ips/hw/hdmi/src/hdl/vga_controler.vhd">
       <FileInfo SFType="VHDL2008">
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../ips/hw/hdmi/src/hdl/vga.vhd">
       <FileInfo SFType="VHDL2008">
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../ips/hw/hdmi/src/hdl/tmds_encoder.vhd">
       <FileInfo SFType="VHDL2008">
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../ips/hw/hdmi/src/hdl/serializer_10_to_1.vhd">
       <FileInfo SFType="VHDL2008">
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../ips/hw/hdmi/src/hdl/vga_to_hdmi.vhd">
       <FileInfo SFType="VHDL2008">
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../ips/hw/hdmi/src/hdl/hdmi.vhd">
       <FileInfo SFType="VHDL2008">
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../hw/mandelbrot_pinout/src/hdl/mandelbrot_pinout.vhd">
+      <FileInfo SFType="VHDL2008">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -92,8 +72,22 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../hw/mandelbrot_pinout/src/hdl/mandelbrot_pinout.vhd">
-      <FileInfo SFType="VHDL2008">
+    <File Path="$PSRCDIR/sources_1/new/mandel_iter.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/mandelbrot_calculator.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/tb_mandelbrot.vhd">
+      <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -157,7 +151,8 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="tb_mandelbrot"/>
+      <Option Name="TopModule" Val="mandelbrot_pinout"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -185,6 +180,9 @@
     </StratHandle>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="dsp_add_mult_add"/>
-  <BlockFileSet Type="BlockSrcs" Name="dsp_simple"/>
+  <BlockFileSet Type="BlockSrcs" Name="mandel_blk_mem"/>
+  <BlockFileSet Type="BlockSrcs" Name="clk_vga_hdmi_800x600"/>
+  <BlockFileSet Type="BlockSrcs" Name="clk_vga_hdmi_1024x768"/>
+  <BlockFileSet Type="BlockSrcs" Name="clk_vga_hdmi_640x480"/>
+  <BlockFileSet Type="BlockSrcs" Name="clk_vga_hdmi_1024x600"/>
 </GenRun>
