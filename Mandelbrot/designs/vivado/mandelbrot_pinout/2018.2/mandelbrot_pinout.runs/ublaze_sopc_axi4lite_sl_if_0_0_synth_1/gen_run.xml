@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="ublaze_sopc_axi4lite_sl_if_0_0_synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1588605453">
-  <File Type="RDS-UTIL-PB" Name="ublaze_sopc_axi4lite_sl_if_0_0_utilization_synth.pb"/>
+<GenRun Id="ublaze_sopc_axi4lite_sl_if_0_0_synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1591178217">
   <File Type="RDS-UTIL" Name="ublaze_sopc_axi4lite_sl_if_0_0_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="ublaze_sopc_axi4lite_sl_if_0_0_utilization_synth.pb"/>
   <File Type="RDS-RDS" Name="ublaze_sopc_axi4lite_sl_if_0_0.vds"/>
   <File Type="RDS-DCP" Name="ublaze_sopc_axi4lite_sl_if_0_0.dcp"/>
   <File Type="PA-TCL" Name="ublaze_sopc_axi4lite_sl_if_0_0.tcl"/>
@@ -10,6 +10,7 @@
     <File Path="$PPRDIR/../../../../ips/vivado/ublaze/2018.2/ublaze.srcs/sources_1/bd/ublaze_sopc/ip/ublaze_sopc_axi4lite_sl_if_0_0/ublaze_sopc_axi4lite_sl_if_0_0.xci">
       <FileInfo>
         <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -25,6 +26,7 @@
     <File Path="$PPRDIR/../../../../ips/vivado/ublaze/2018.2/ublaze.srcs/sources_1/bd/ublaze_sopc/ip/ublaze_sopc_axi4lite_sl_if_0_0/ublaze_sopc_axi4lite_sl_if_0_0.xci">
       <FileInfo>
         <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="dsp_simple_synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1588607630">
-  <File Type="RDS-UTIL-PB" Name="dsp_simple_utilization_synth.pb"/>
+<GenRun Id="dsp_simple_synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1591178217">
   <File Type="RDS-UTIL" Name="dsp_simple_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="dsp_simple_utilization_synth.pb"/>
   <File Type="RDS-RDS" Name="dsp_simple.vds"/>
   <File Type="RDS-DCP" Name="dsp_simple.dcp"/>
   <File Type="PA-TCL" Name="dsp_simple.tcl"/>

@@ -1,17 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl_pkg/hdmi_interface_pkg.vhd" into library xil_defaultlib
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl/vga_stripes.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'vga_stripes'
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl/vga_controler.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'vga_controler'
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl/vga.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'vga'
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl/tmds_encoder.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'tmds_encoder'
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl/serializer_10_to_1.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'serializer_10_to_1'
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl/vga_to_hdmi.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'vga_to_hdmi'
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl/hdmi.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'hdmi'
 INFO: [VRFC 10-163] Analyzing VHDL file "/home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/hw/mandelbrot_pinout/src/hdl/mandelbrot_pinout.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'mandelbrot_pinout'

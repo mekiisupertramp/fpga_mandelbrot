@@ -61,6 +61,12 @@ end entity mandelbrot_pinout;
 
 architecture rtl of mandelbrot_pinout is
 
+    -- signal clk: std_logic := '0';
+    -- signal rst: std_logic := '0';
+    -- signal ClkSys100MhzxCI: std_logic := '0';
+    -- signal ResetxRNI: std_logic := '0';
+    -- constant clk_period : time := 1 ns;
+
     -- Constants
 
     ---------------------------------------------------------------------------
@@ -192,6 +198,25 @@ architecture rtl of mandelbrot_pinout is
             iterations: out std_logic_vector(SIZE-1 downto 0));
     end component mandelbrot_calculator;
     
+    component c_gen is
+       generic (
+        C_FXP_SIZE   : integer := 16;
+        C_X_SIZE     : integer := 1024;
+        C_Y_SIZE     : integer := 600;
+        C_SCREEN_RES : integer := 11);
+
+        port (
+            ClkxC         : in  std_logic;
+            RstxRA        : in  std_logic;
+            ZoomInxSI     : in  std_logic;
+            ZoomOutxSI    : in  std_logic;
+            NextValue     : in std_logic;
+            CRealxDO      : out std_logic_vector((C_FXP_SIZE - 1) downto 0);
+            CImaginaryxDO : out std_logic_vector((C_FXP_SIZE - 1) downto 0);
+            XScreenxDO    : out std_logic_vector((C_SCREEN_RES - 1) downto 0);
+            YScreenxDO    : out std_logic_vector((C_SCREEN_RES - 1) downto 0));
+    end component c_gen;
+    
     COMPONENT mandel_blk_mem
       PORT (
         clka : IN STD_LOGIC;
@@ -311,14 +336,59 @@ architecture rtl of mandelbrot_pinout is
     signal FlagColor3RegPortxDN : std_logic_vector((C_AXI4_DATA_SIZE - 1) downto 0) := (others => '0');
     
     
+    -- signals for mandelbrot computation
+    constant SIZE: integer := 16;
+
     signal MandelAdrA_Sig : std_logic_vector(19 DOWNTO 0) := (others => '0');
     signal MandelAdrB_Sig : std_logic_vector(19 DOWNTO 0) := (others => '0');
     signal MandelDA_Sig :   std_logic_vector(7 DOWNTO 0) := (others => '0');
     signal MandelDB_Sig :   std_logic_vector(7 DOWNTO 0) := (others => '0');
     
     signal adrACounter: unsigned(19 downto 0) := (others => '0');
+    
+    signal MandelRdyDI:    std_logic := '0';
+    signal MandelStartDI:  std_logic := '0';
+    signal MandelFinishDO: std_logic := '0';
+    signal MandelC_RealDI: std_logic_vector(SIZE-1 DOWNTO 0) := (others => '0');
+    signal MandelC_ImgDI:  std_logic_vector(SIZE-1 DOWNTO 0) := (others => '0');
+    signal MandelZ_RealDO: std_logic_vector(SIZE-1 DOWNTO 0) := (others => '0');
+    signal MandelZ_ImgDO:  std_logic_vector(SIZE-1 DOWNTO 0) := (others => '0');
+    signal MandelIterDO:   std_logic_vector(SIZE-1 DOWNTO 0) := (others => '0');
+    
+    signal ScreenX: std_logic_vector((11 - 1) downto 0);
+    signal ScreenY: std_logic_vector((11 - 1) downto 0);
+    signal test : std_logic_vector(23 downto 0) := (others => '0');
 
 begin  -- architecture rtl
+
+    -- ClkSys100MhzxCI <= clk;
+    -- ResetxRNI <= rst;
+    
+    
+    --  -- only for testing 
+    --   clk_proc: process
+    --   begin
+    --     clk <= '0';
+    --     wait for clk_period/2;
+    --     clk <= '1';
+    --     wait for clk_period/2;
+    --   end process;
+      
+      
+    --   ctrl: process
+    --   begin
+    --     rst <= '0';
+    --     wait for clk_period*2;
+    --     rst <= '0';
+    --     wait for clk_period*2;
+    --     rst <= '1';
+    --     wait;
+    --     wait;
+    --     wait;
+    --     wait;
+    --     wait for 100 us;
+    --   end process;
+
 
     -- Asynchronous statements
 
@@ -514,22 +584,30 @@ begin  -- architecture rtl
 --                Color1xDI    => RdDataFlagColor1xDP(((C_PIXEL_SIZE * 3) - 1) downto 0));
                 
         ---DataImGen2HDMIxD <= (((C_PIXEL_SIZE * 3) - 1) downto MandelDB_Sig'length*2 => '0') & MandelDB_Sig & MandelDB_Sig;
-        DataImGen2HDMIxD <= MandelDB_Sig & "00000000" & MandelDB_Sig;
+        DataImGen2HDMIxD <= std_logic_vector(shift_left(unsigned(MandelDB_Sig),2)+30) & "00000000" & MandelDB_Sig;
+        --DataImGen2HDMIxD <= test;
+        --DataImGen2HDMIxD <= (others => '0');
         MandelAdrA_Sig <= std_logic_vector(adrACounter);
         MandelAdrB_Sig <= std_logic_vector(resize(unsigned(HCountxD)+(unsigned(VCountxD)*1024),MandelAdrB_Sig'length));
         
+--        DataImGen2HDMIxD <= "11011000" & "00000000" & "11011000" when unsigned(HCountxD) < 341 else
+--                            "11011000" & "11011000" & "11011000" when (unsigned(HCountxD) > 340) and (unsigned(HCountxD) < 682) else
+--                            "11011000" & "00000000" & "00000000" when unsigned(HCountxD) > 681;
+        
         -- populate BRAM with random image
-        process(ClkVgaxC)
+        process(ClkVgaxC) -- ClkVgaxC
         begin
             if rising_edge(ClkVgaxC) then
-                adrACounter <= (adrACounter+1) mod 614400;
-                MandelDA_Sig <= "10110110";
+                MandelDA_Sig <= MandelIterDO(MandelDA_Sig'length-1 downto 0);
+                if MandelFinishDO = '1' then
+                    adrACounter <= (adrACounter+1) mod 614400;
+                end if;
             end if;
         end process;
         
         Mandelbrot_memory: mandel_blk_mem
         port map(
-            clka  => ClkVgaxC,
+            clka  => ClkVgaxC, -- ClkVgaxC
             ena   => '1',
             wea   => (others => '1'),
             addra => MandelAdrA_Sig,
@@ -539,6 +617,31 @@ begin  -- architecture rtl
             addrb => MandelAdrB_Sig,
             doutb => MandelDB_Sig
         );
+        
+        mandelbrot: mandelbrot_calculator 
+        port map(
+            clk             => ClkVgaxC, -- ClkVgaxC
+            rst             => not ResetxRNI,
+            ready           => MandelRdyDI,
+            start           => '1',
+            finished        => MandelFinishDO,
+            c_real          => MandelC_RealDI,
+            c_imaginary     => MandelC_ImgDI,
+            z_real          => MandelZ_RealDO,
+            z_imaginary     => MandelZ_ImgDO,
+            iterations      => MandelIterDO);
+            
+        comp_generator: c_gen 
+        port map(
+            ClkxC           => ClkVgaxC, --ClkVgaxC
+            RstxRA          => not ResetxRNI,
+            ZoomInxSI       => '0',
+            ZoomOutxSI      => '0',
+            NextValue       => MandelFinishDO,
+            CRealxDO        => MandelC_RealDI,
+            CImaginaryxDO   => MandelC_ImgDI,
+            XScreenxDO      => ScreenX,
+            YScreenxDO      => ScreenY);
 
         -- HVCountIntxP : process (all) is
         -- begin  -- process HVCountxP

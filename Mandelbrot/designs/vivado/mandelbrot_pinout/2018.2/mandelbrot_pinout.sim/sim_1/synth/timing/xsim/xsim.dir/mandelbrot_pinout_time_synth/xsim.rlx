@@ -1,6 +1,6 @@
 
 { 
-    crc :  14887194616764025058  , 
+    crc :  11373184060188244960  , 
     ccp_crc :  0  , 
     cmdline : " -wto 7a998fe0abfe46918ad5cbba8b012036 --incr --debug typical --relax --mt 8 --maxdelay -L xil_defaultlib -L simprims_ver -L secureip --snapshot mandelbrot_pinout_time_synth -transport_int_delays -pulse_r 0 -pulse_int_r 0 -pulse_e 0 -pulse_int_e 0 xil_defaultlib.mandelbrot_pinout xil_defaultlib.glbl" , 
     buildDate : "Nov  6 2019" , 

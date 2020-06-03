@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="fifo_regport_synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1588673911">
-  <File Type="PA-TCL" Name="fifo_regport.tcl"/>
+<GenRun Id="fifo_regport_synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1591178217">
   <File Type="RDS-DCP" Name="fifo_regport.dcp"/>
+  <File Type="PA-TCL" Name="fifo_regport.tcl"/>
   <File Type="REPORTS-TCL" Name="fifo_regport_reports.tcl"/>
   <File Type="RDS-RDS" Name="fifo_regport.vds"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/fifo_regport">
     <File Path="$PSRCDIR/sources_1/ip/fifo_regport/fifo_regport.xci">
       <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -20,6 +21,7 @@
   <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/fifo_regport">
     <File Path="$PSRCDIR/sources_1/ip/fifo_regport/fifo_regport.xci">
       <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
