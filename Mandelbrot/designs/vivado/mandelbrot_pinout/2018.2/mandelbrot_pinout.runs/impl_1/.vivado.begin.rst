@@ -1,10 +1,5 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="xilinx" Host="xilinx-vm" Pid="20880" HostCore="8" HostMemory="11889384">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="xilinx" Host="xilinx-vm" Pid="13204" HostCore="8" HostMemory="11889384">
+    <Process Command="vivado" Owner="xilinx" Host="xilinx-vm" Pid="14379" HostCore="8" HostMemory="11889384">
     </Process>
 </ProcessHandle>

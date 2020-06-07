@@ -77,15 +77,15 @@ architecture behavioral of c_gen is
 
     -- Complex constants
     -- Zoom 0
-    constant C_TOP_LEFT_RE_0 : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "1110000000000000";
-    constant C_TOP_LEFT_IM_0 : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "0001000000000000";
-    constant C_INC_RE_0      : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "0000000000010000";
-    constant C_INC_IM_0      : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "0000000000001110";
+    signal C_TOP_LEFT_RE_0 : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "1110000000000000";
+    signal C_TOP_LEFT_IM_0 : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "0001000000000000";
+    signal C_INC_RE_0      : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "0000000000010000";
+    signal C_INC_IM_0      : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "0000000000001110";
     -- Zoom 1
-    constant C_TOP_LEFT_RE_1 : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "1110000000000000";
-    constant C_TOP_LEFT_IM_1 : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "0001000000000000";
-    constant C_INC_RE_1      : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "0000000000001000";
-    constant C_INC_IM_1      : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "0000000000000110";
+    signal C_TOP_LEFT_RE_1 : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "1110000000000000";
+    signal C_TOP_LEFT_IM_1 : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "0001000000000000";
+    signal C_INC_RE_1      : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "0000000000001000";
+    signal C_INC_IM_1      : std_logic_vector((C_FXP_SIZE - 1) downto 0) := "0000000000000110";
 
     -- Generic memory
     constant C_WORD_SIZE    : integer := (4 * C_FXP_SIZE);
@@ -103,6 +103,16 @@ architecture behavioral of c_gen is
 
 begin  -- architecture behavioral
 
+    C_TOP_LEFT_RE_0 <= "1110000000000000";
+    C_TOP_LEFT_IM_0 <= "0001000000000000";
+    C_INC_RE_0      <= "0000000000010000";
+    C_INC_IM_0      <= "0000000000001110";
+    -- Zoom 1
+    C_TOP_LEFT_RE_1 <= "1110100000000000";
+    C_TOP_LEFT_IM_1 <= "0000100000000000";
+    C_INC_RE_1      <= "0000000000000010"; -- 0000000000000100      0000000000001000
+    C_INC_IM_1      <= "0000000000000001"; -- 0000000000000011      0000000000000110
+
     -- Asynchronous statements
 
     ZoomInOutxB : block is
@@ -119,13 +129,17 @@ begin  -- architecture behavioral
 
         -- Input values
 
-        CTopLeftReIxAS : CTopLeftReIxD <= MemxD(CurrentWordxD)((C_WORD_SIZE - 1) downto
-                                                               (C_WORD_SIZE - C_FXP_SIZE));
-        CIncReIxAS : CIncReIxD <= MemxD(CurrentWordxD)((C_WORD_SIZE - C_FXP_SIZE - 1) downto
-                                                       (C_WORD_SIZE - (2 * C_FXP_SIZE)));
-        CTopLeftImIxAS : CTopLeftImIxD <= MemxD(CurrentWordxD)((C_WORD_SIZE - (2 * C_FXP_SIZE) - 1) downto
-                                                               (C_WORD_SIZE - (3 * C_FXP_SIZE)));
-        CIncImIxAS : CIncImIxD <= MemxD(CurrentWordxD)((C_WORD_SIZE - (3 * C_FXP_SIZE) - 1) downto 0);
+        --CTopLeftReIxAS : CTopLeftReIxD <= MemxD(CurrentWordxD)((C_WORD_SIZE - 1) downto (C_WORD_SIZE - C_FXP_SIZE));
+        CTopLeftReIxD <= C_TOP_LEFT_RE_0 when CurrentWordxD=0 else C_TOP_LEFT_RE_1;
+        
+        --CIncReIxAS : CIncReIxD <= MemxD(CurrentWordxD)((C_WORD_SIZE - C_FXP_SIZE - 1) downto (C_WORD_SIZE - (2 * C_FXP_SIZE)));
+        CIncReIxD <= C_INC_RE_0 when CurrentWordxD=0 else C_INC_RE_1;
+        
+        --CTopLeftImIxAS : CTopLeftImIxD <= MemxD(CurrentWordxD)((C_WORD_SIZE - (2 * C_FXP_SIZE) - 1) downto (C_WORD_SIZE - (3 * C_FXP_SIZE)));
+        CTopLeftImIxD <= C_TOP_LEFT_IM_0 when CurrentWordxD=0 else C_TOP_LEFT_IM_1;
+        
+        --CIncImIxAS : CIncImIxD <= MemxD(CurrentWordxD)((C_WORD_SIZE - (3 * C_FXP_SIZE) - 1) downto 0);
+        CIncImIxD <= C_INC_IM_0 when CurrentWordxD=0 else C_INC_IM_1;
 
         ComplexValueGeneratorxI : entity work.ComplexValueGenerator
             generic map (

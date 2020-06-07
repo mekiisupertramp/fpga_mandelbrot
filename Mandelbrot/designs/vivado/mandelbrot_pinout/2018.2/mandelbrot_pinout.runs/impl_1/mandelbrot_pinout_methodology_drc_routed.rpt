@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (lin64) Build 2708876 Wed Nov  6 21:39:14 MST 2019
-| Date         : Wed Jun  3 13:51:36 2020
+| Date         : Sun Jun  7 19:01:23 2020
 | Host         : xilinx-vm running 64-bit unknown
 | Command      : report_methodology -file mandelbrot_pinout_methodology_drc_routed.rpt -pb mandelbrot_pinout_methodology_drc_routed.pb -rpx mandelbrot_pinout_methodology_drc_routed.rpx
 | Design       : mandelbrot_pinout
@@ -23,14 +23,16 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 171
-+----------+------------------+----------------------------------------------------+------------+
-| Rule     | Severity         | Description                                        | Violations |
-+----------+------------------+----------------------------------------------------+------------+
-| TIMING-2 | Critical Warning | Invalid primary clock source pin                   | 1          |
-| TIMING-4 | Critical Warning | Invalid primary clock redefinition on a clock tree | 1          |
-| DPIR-1   | Warning          | Asynchronous driver check                          | 169        |
-+----------+------------------+----------------------------------------------------+------------+
+             Violations found: 176
++-----------+------------------+----------------------------------------------------+------------+
+| Rule      | Severity         | Description                                        | Violations |
++-----------+------------------+----------------------------------------------------+------------+
+| TIMING-2  | Critical Warning | Invalid primary clock source pin                   | 1          |
+| TIMING-4  | Critical Warning | Invalid primary clock redefinition on a clock tree | 1          |
+| DPIR-1    | Warning          | Asynchronous driver check                          | 169        |
+| LUTAR-1   | Warning          | LUT drives async reset alert                       | 2          |
+| TIMING-20 | Warning          | Non-clocked latch                                  | 3          |
++-----------+------------------+----------------------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
@@ -887,6 +889,31 @@ Related violations: <none>
 DPIR-1#169 Warning
 Asynchronous driver check  
 DSP FpgaUserCDxB.mandelbrot/mandelbrot/square_re_zn/U0/i_synth/i_synth_option.i_synth_model/opt_7series.i_uniwrap/i_primitive input pin FpgaUserCDxB.mandelbrot/mandelbrot/square_re_zn/U0/i_synth/i_synth_option.i_synth_model/opt_7series.i_uniwrap/i_primitive/B[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_re_i_reg[11]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_im_i_reg[12]_C/CLR, FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_im_i_reg[12]_LDC/CLR, FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_im_i_reg[11]_P/PRE, FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_re_i_reg[11]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#2 Warning
+LUT drives async reset alert  
+LUT cell FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_re_i_reg[11]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_im_i_reg[11]_C/CLR, FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_im_i_reg[11]_LDC/CLR, FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_re_i_reg[11]_C/CLR, FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_re_i_reg[11]_LDC/CLR, FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_im_i_reg[12]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_im_i_reg[11]_LDC cannot be properly analyzed as its control pin FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_im_i_reg[11]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_im_i_reg[12]_LDC cannot be properly analyzed as its control pin FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_im_i_reg[12]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_re_i_reg[11]_LDC cannot be properly analyzed as its control pin FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_re_i_reg[11]_LDC/G is not reached by a timing clock
 Related violations: <none>
 
 

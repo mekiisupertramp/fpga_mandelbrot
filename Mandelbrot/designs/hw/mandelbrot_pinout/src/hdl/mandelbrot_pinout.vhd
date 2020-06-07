@@ -46,7 +46,7 @@ entity mandelbrot_pinout is
         -- Leds
         LedxDO          : out   std_logic_vector((C_GPIO_SIZE - 1) downto 0);
         -- Buttons
-        -- BtnCxSI         : in    std_logic;
+        swxDI            : in    std_logic_vector((C_GPIO_SIZE - 1) downto 0);
         -- HDMI
         HdmiTxRsclxSO   : out   std_logic;
         HdmiTxRsdaxSIO  : inout std_logic;
@@ -198,6 +198,29 @@ architecture rtl of mandelbrot_pinout is
             iterations: out std_logic_vector(SIZE-1 downto 0));
     end component mandelbrot_calculator;
     
+    component mandel_calc_v2 is
+        generic(
+            comma    : integer := 12;
+            MAX_ITER : integer := 100;
+            SIZE     : integer := 16;
+            C_SCREEN_RES : integer := 11);
+        port (
+           clk: in std_logic;
+           rst: in std_logic;
+           ready: out std_logic;
+           start: in std_logic;
+           finished: out std_logic;
+           c_real: in std_logic_vector(SIZE-1 downto 0);
+           c_imaginary: in std_logic_vector(SIZE-1 downto 0);
+           z_real: out std_logic_vector(SIZE-1 downto 0);
+           z_imaginary: out std_logic_vector(SIZE-1 downto 0);
+           iterations: out std_logic_vector(SIZE-1 downto 0);
+           
+           screen_x: in std_logic_vector((C_SCREEN_RES - 1) downto 0);
+           screen_y: in std_logic_vector((C_SCREEN_RES - 1) downto 0);
+           mem_adr: out std_logic_vector(19 downto 0));
+    end component mandel_calc_v2;
+    
     component c_gen is
        generic (
         C_FXP_SIZE   : integer := 16;
@@ -344,7 +367,7 @@ architecture rtl of mandelbrot_pinout is
     signal MandelDA_Sig :   std_logic_vector(7 DOWNTO 0) := (others => '0');
     signal MandelDB_Sig :   std_logic_vector(7 DOWNTO 0) := (others => '0');
     
-    signal adrACounter: unsigned(19 downto 0) := (others => '0');
+    signal adrACounter:    unsigned(19 downto 0) := (others => '0');
     
     signal MandelRdyDI:    std_logic := '0';
     signal MandelStartDI:  std_logic := '0';
@@ -357,7 +380,9 @@ architecture rtl of mandelbrot_pinout is
     
     signal ScreenX: std_logic_vector((11 - 1) downto 0);
     signal ScreenY: std_logic_vector((11 - 1) downto 0);
-    signal test : std_logic_vector(23 downto 0) := (others => '0');
+    signal test :   std_logic_vector(23 downto 0) := (others => '0');
+    signal zoomIn:  std_logic := '0';
+    signal zoomCpt: integer := 0;
 
 begin  -- architecture rtl
 
@@ -590,11 +615,7 @@ begin  -- architecture rtl
         MandelAdrA_Sig <= std_logic_vector(adrACounter);
         MandelAdrB_Sig <= std_logic_vector(resize(unsigned(HCountxD)+(unsigned(VCountxD)*1024),MandelAdrB_Sig'length));
         
---        DataImGen2HDMIxD <= "11011000" & "00000000" & "11011000" when unsigned(HCountxD) < 341 else
---                            "11011000" & "11011000" & "11011000" when (unsigned(HCountxD) > 340) and (unsigned(HCountxD) < 682) else
---                            "11011000" & "00000000" & "00000000" when unsigned(HCountxD) > 681;
-        
-        -- populate BRAM with random image
+        -- populate BRAM 
         process(ClkVgaxC) -- ClkVgaxC
         begin
             if rising_edge(ClkVgaxC) then
@@ -604,6 +625,20 @@ begin  -- architecture rtl
                 end if;
             end if;
         end process;
+        
+        -- timer 1 sec
+--        process(ClkSys100MhzxCI)
+--        begin
+--            if rising_edge(ClkSys100MhzxCI) then
+--                if zoomCpt < 10000000 then
+--                    zoomCpt <= zoomCpt+1;
+--                    zoomIn <= '0';
+--                else
+--                    zoomCpt <= 0;
+--                    zoomIn <= '1';
+--                end if;
+--            end if;
+--        end process;
         
         Mandelbrot_memory: mandel_blk_mem
         port map(
@@ -617,6 +652,22 @@ begin  -- architecture rtl
             addrb => MandelAdrB_Sig,
             doutb => MandelDB_Sig
         );
+--MandelDA_Sig <= MandelIterDO(MandelDA_Sig'length-1 downto 0);   
+--        mandel_calcv2: mandel_calc_v2
+--        port map(
+--            clk             => ClkVgaxC, -- ClkVgaxC
+--            rst             => not ResetxRNI,
+--            ready           => MandelRdyDI,
+--            start           => '1',
+--            finished        => MandelFinishDO,
+--            c_real          => MandelC_RealDI,
+--            c_imaginary     => MandelC_ImgDI,
+--            z_real          => MandelZ_RealDO,
+--            z_imaginary     => MandelZ_ImgDO,
+--            iterations      => MandelIterDO,
+--            screen_x        => ScreenX,
+--            screen_y        => ScreenY,
+--            mem_adr         => MandelAdrA_Sig);
         
         mandelbrot: mandelbrot_calculator 
         port map(
@@ -635,8 +686,8 @@ begin  -- architecture rtl
         port map(
             ClkxC           => ClkVgaxC, --ClkVgaxC
             RstxRA          => not ResetxRNI,
-            ZoomInxSI       => '0',
-            ZoomOutxSI      => '0',
+            ZoomInxSI       => swxDI(0),
+            ZoomOutxSI      => not swxDI(0),
             NextValue       => MandelFinishDO,
             CRealxDO        => MandelC_RealDI,
             CImaginaryxDO   => MandelC_ImgDI,

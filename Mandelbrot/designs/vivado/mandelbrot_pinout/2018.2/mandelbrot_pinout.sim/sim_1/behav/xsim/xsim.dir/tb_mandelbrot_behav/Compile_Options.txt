@@ -1,1 +1,1 @@
--wto "7a998fe0abfe46918ad5cbba8b012036" --incr --debug "typical" --relax --mt "8" -L "xbip_dsp48_wrapper_v3_0_4" -L "xbip_utils_v3_0_10" -L "xbip_pipe_v3_0_6" -L "xbip_dsp48_macro_v3_0_17" -L "xil_defaultlib" -L "secureip" -L "xpm" --snapshot "tb_mandelbrot_behav" "xil_defaultlib.tb_mandelbrot" -log "elaborate.log" 
+-wto "7a998fe0abfe46918ad5cbba8b012036" --incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "secureip" -L "xpm" --snapshot "tb_mandelbrot_behav" "xil_defaultlib.tb_mandelbrot" -log "elaborate.log" 

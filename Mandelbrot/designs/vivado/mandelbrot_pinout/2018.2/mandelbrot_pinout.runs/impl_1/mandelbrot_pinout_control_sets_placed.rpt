@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (lin64) Build 2708876 Wed Nov  6 21:39:14 MST 2019
-| Date         : Wed Jun  3 13:50:21 2020
+| Date         : Sun Jun  7 19:00:06 2020
 | Host         : xilinx-vm running 64-bit unknown
 | Command      : report_control_sets -verbose -file mandelbrot_pinout_control_sets_placed.rpt
 | Design       : mandelbrot_pinout
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    10 |
-|    Minimum number of control sets                        |    10 |
+| Total control sets                                       |    15 |
+|    Minimum number of control sets                        |    15 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    37 |
+| Unused register locations in slices containing registers |    69 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    10 |
-| >= 0 to < 4        |     1 |
+| Total control sets |    15 |
+| >= 0 to < 4        |     5 |
 | >= 4 to < 6        |     0 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |     0 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     1 |
 | >= 14 to < 16      |     0 |
-| >= 16              |     8 |
+| >= 16              |     9 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -59,10 +59,10 @@ Table of Contents
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |              34 |           15 |
-| No           | No                    | Yes                    |              20 |            8 |
-| No           | Yes                   | No                     |              12 |            6 |
-| Yes          | No                    | No                     |              38 |           13 |
-| Yes          | No                    | Yes                    |             115 |           31 |
+| No           | No                    | Yes                    |              26 |           12 |
+| No           | Yes                   | No                     |              15 |           10 |
+| Yes          | No                    | No                     |              38 |           17 |
+| Yes          | No                    | Yes                    |             146 |           43 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -70,19 +70,24 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+------------------------------------------------------------------------------+------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------+----------------+
-|                                 Clock Signal                                 |                                    Enable Signal                                   |                            Set/Reset Signal                           | Slice Load Count | Bel Load Count |
-+------------------------------------------------------------------------------+------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------+----------------+
-|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO |                                                                                    | FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/AR[0] |                1 |              1 |
-|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO |                                                                                    | VgaHdmiCDxB.HdmixI/VgaxI/VgaControlerxI/SR[0]                         |                6 |             12 |
-|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO | VgaHdmiCDxB.HdmixI/VgaxI/VgaControlerxI/VCountxD                                   | VgaHdmiCDxB.HdmixI/VgaxI/VgaControlerxI/bbstub_PllLockedxSO           |                5 |             16 |
-|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO | VgaHdmiCDxB.HdmixI/VgaxI/VgaControlerxI/VidOnxS_reg_0                              |                                                                       |                7 |             18 |
-|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO |                                                                                    | VgaHdmiCDxB.HdmixI/VgaxI/VgaControlerxI/bbstub_PllLockedxSO           |                7 |             19 |
-|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO | FpgaUserCDxB.mandelbrot/E[0]                                                       |                                                                       |                6 |             20 |
-|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO | FpgaUserCDxB.mandelbrot/E[0]                                                       | FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/AR[0] |                6 |             24 |
-|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO | FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/posy_i[10]_i_1_n_0 | FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/AR[0] |                9 |             27 |
-|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO |                                                                                    |                                                                       |               15 |             34 |
-|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO | FpgaUserCDxB.mandelbrot/mandelbrot/E[0]                                            | FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/AR[0] |               11 |             48 |
-+------------------------------------------------------------------------------+------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------+----------------+
++---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+------------------+----------------+
+|                                         Clock Signal                                        |                                    Enable Signal                                   |                                      Set/Reset Signal                                      | Slice Load Count | Bel Load Count |
++---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+------------------+----------------+
+|  FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_re_i_reg[11]_LDC_i_2_n_0 |                                                                                    | FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_re_i_reg[11]_LDC_i_1_n_0 |                1 |              1 |
+|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO                |                                                                                    | FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/AR[0]                      |                1 |              1 |
+|  FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_re_i_reg[11]_LDC_i_1_n_0 |                                                                                    | FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_re_i_reg[11]_LDC_i_2_n_0 |                2 |              2 |
+|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO                |                                                                                    | FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_re_i_reg[11]_LDC_i_1_n_0 |                1 |              3 |
+|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO                |                                                                                    | FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/c_re_i_reg[11]_LDC_i_2_n_0 |                2 |              3 |
+|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO                |                                                                                    | VgaHdmiCDxB.HdmixI/VgaxI/VgaControlerxI/SR[0]                                              |                7 |             12 |
+|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO                | VgaHdmiCDxB.HdmixI/VgaxI/VgaControlerxI/VCountxD                                   | VgaHdmiCDxB.HdmixI/VgaxI/VgaControlerxI/bbstub_PllLockedxSO                                |                4 |             16 |
+|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO                | VgaHdmiCDxB.HdmixI/VgaxI/VgaControlerxI/VidOnxS_reg_0                              |                                                                                            |               10 |             18 |
+|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO                |                                                                                    | VgaHdmiCDxB.HdmixI/VgaxI/VgaControlerxI/bbstub_PllLockedxSO                                |                8 |             19 |
+|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO                | FpgaUserCDxB.mandelbrot/E[0]                                                       |                                                                                            |                7 |             20 |
+|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO                | FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/posy_i[10]_i_1_n_0 | FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/AR[0]                      |                8 |             25 |
+|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO                | FpgaUserCDxB.mandelbrot/E[0]                                                       | FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/AR[0]                      |                6 |             25 |
+|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO                | FpgaUserCDxB.comp_generator/ZoomInOutxB.CurrentWordxD[0]_i_1_n_0                   | FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/AR[0]                      |                8 |             32 |
+|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO                |                                                                                    |                                                                                            |               15 |             34 |
+|  VgaHdmiCDxB.HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/inst/ClkVgaxCO                | FpgaUserCDxB.mandelbrot/mandelbrot/E[0]                                            | FpgaUserCDxB.comp_generator/ZoomInOutxB.ComplexValueGeneratorxI/AR[0]                      |               17 |             48 |
++---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+------------------+----------------+
 
 
