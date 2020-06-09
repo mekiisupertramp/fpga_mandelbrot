@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2019.2 (lin64) Build 2708876 Wed Nov  6 21:39:14 MST 2019
-| Date                      : Sun Jun  7 19:00:06 2020
+| Date                      : Tue Jun  9 12:56:13 2020
 | Host                      : xilinx-vm running 64-bit unknown
 | Command                   : report_io -file mandelbrot_pinout_io_placed.rpt
 | Design                    : mandelbrot_pinout
@@ -422,7 +422,7 @@ Table of Contents
 | T11        |                 |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | T12        |                 | Dedicated  | VCCO_0                       | VCCO          |             |       0 |            |      |                     |                      |   any** |            |           |          |      |                  |              |                   |              |
 | T13        |                 | Dedicated  | TMS_0                        | Config        |             |       0 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| T14        | LedxDO[0]       | High Range | IO_L15P_T2_DQS_13            | TRISTATE      | LVCMOS25    |      13 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| T14        | LedxDO[0]       | High Range | IO_L15P_T2_DQS_13            | OUTPUT        | LVCMOS25    |      13 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | T15        | LedxDO[1]       | High Range | IO_L15N_T2_DQS_13            | TRISTATE      | LVCMOS25    |      13 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | T16        | LedxDO[2]       | High Range | IO_L17P_T2_13                | TRISTATE      | LVCMOS25    |      13 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | T17        |                 |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |

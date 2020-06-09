@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="dsp_add_mult_add_synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1591178217">
+<GenRun Id="dsp_add_mult_add_synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1591693445">
+  <File Type="VDS-TIMING-PB" Name="dsp_add_mult_add_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="dsp_add_mult_add_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="dsp_add_mult_add.dcp"/>
-  <File Type="PA-TCL" Name="dsp_add_mult_add.tcl"/>
-  <File Type="REPORTS-TCL" Name="dsp_add_mult_add_reports.tcl"/>
-  <File Type="RDS-RDS" Name="dsp_add_mult_add.vds"/>
   <File Type="RDS-UTIL-PB" Name="dsp_add_mult_add_utilization_synth.pb"/>
   <File Type="RDS-UTIL" Name="dsp_add_mult_add_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="dsp_add_mult_add_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="dsp_add_mult_add.vds"/>
+  <File Type="REPORTS-TCL" Name="dsp_add_mult_add_reports.tcl"/>
+  <File Type="PA-TCL" Name="dsp_add_mult_add.tcl"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/dsp_add_mult_add">
     <File Path="$PSRCDIR/sources_1/ip/dsp_add_mult_add/dsp_add_mult_add.xci">
       <FileInfo>

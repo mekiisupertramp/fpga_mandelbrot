@@ -1,3 +1,10 @@
+-makelib ies_lib/xpm -sv \
+  "/opt/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+  "/opt/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+-endlib
+-makelib ies_lib/xpm \
+  "/opt/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_VCOMP.vhd" \
+-endlib
 -makelib ies_lib/xbip_dsp48_wrapper_v3_0_4 \
   "../../../ipstatic/hdl/xbip_dsp48_wrapper_v3_0_vh_rfs.vhd" \
 -endlib
@@ -12,5 +19,8 @@
 -endlib
 -makelib ies_lib/xil_defaultlib \
   "../../../../mandelbrot_pinout.srcs/sources_1/ip/dsp_add_mult_add/sim/dsp_add_mult_add.vhd" \
+-endlib
+-makelib ies_lib/xil_defaultlib \
+  glbl.v
 -endlib
 

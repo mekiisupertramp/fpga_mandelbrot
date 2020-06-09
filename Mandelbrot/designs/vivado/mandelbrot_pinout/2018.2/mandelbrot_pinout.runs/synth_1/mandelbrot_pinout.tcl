@@ -36,10 +36,12 @@ set_property ip_output_repo /home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/des
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
   /home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/imports/c_gen/ComplexValueGenerator.vhd
+  /home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/new/btn_press.vhd
   /home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/imports/c_gen/c_gen.vhd
+  /home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/new/compteur.vhd
   /home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl_pkg/hdmi_interface_pkg.vhd
-  /home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/new/mandel_iter.vhd
-  /home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/new/mandelbrot_calculator.vhd
+  /home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/new/mandel_calc_v2.vhd
+  /home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/new/mandel_iter_v2.vhd
 }
 read_vhdl -vhdl2008 -library xil_defaultlib {
   /home/xilinx/lpsc_mandelbrot_blazevic/Mandelbrot/ips/hw/hdmi/src/hdl/vga_stripes.vhd

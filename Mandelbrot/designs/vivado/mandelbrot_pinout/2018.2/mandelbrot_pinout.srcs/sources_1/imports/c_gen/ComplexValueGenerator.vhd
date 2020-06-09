@@ -12,7 +12,7 @@ use ieee.numeric_std.all;
 
 entity ComplexValueGenerator is
     generic
-        (SIZE       : integer := 16;  -- Taille en bits de nombre au format virgule fixe
+        (SIZE       : integer := 32;  -- Taille en bits de nombre au format virgule fixe
          X_SIZE     : integer := 1024;  -- Taille en X (Nombre de pixel) de la fractale à afficher
          Y_SIZE     : integer := 600;  -- Taille en Y (Nombre de pixel) de la fractale à afficher
          SCREEN_RES : integer := 10);  -- Nombre de bit pour les vecteurs X et Y de la position du pixel

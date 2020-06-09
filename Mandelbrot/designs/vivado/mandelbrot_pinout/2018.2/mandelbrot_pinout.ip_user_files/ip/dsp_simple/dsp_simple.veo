@@ -55,9 +55,9 @@
 
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 dsp_simple your_instance_name (
-  .A(A),  // input wire [15 : 0] A
-  .B(B),  // input wire [15 : 0] B
-  .P(P)  // output wire [31 : 0] P
+  .A(A),  // input wire [17 : 0] A
+  .B(B),  // input wire [17 : 0] B
+  .P(P)  // output wire [35 : 0] P
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

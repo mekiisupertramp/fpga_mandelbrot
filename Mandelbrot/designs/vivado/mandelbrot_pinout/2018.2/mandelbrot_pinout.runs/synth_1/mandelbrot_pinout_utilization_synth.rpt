@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (lin64) Build 2708876 Wed Nov  6 21:39:14 MST 2019
-| Date         : Sun Jun  7 18:58:18 2020
+| Date         : Tue Jun  9 12:14:52 2020
 | Host         : xilinx-vm running 64-bit unknown
 | Command      : report_utilization -file mandelbrot_pinout_utilization_synth.rpt -pb mandelbrot_pinout_utilization_synth.pb
 | Design       : mandelbrot_pinout
@@ -27,18 +27,20 @@ Table of Contents
 1. Slice Logic
 --------------
 
-+-------------------------+------+-------+-----------+-------+
-|        Site Type        | Used | Fixed | Available | Util% |
-+-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |  455 |     0 |    134600 |  0.34 |
-|   LUT as Logic          |  455 |     0 |    134600 |  0.34 |
-|   LUT as Memory         |    0 |     0 |     46200 |  0.00 |
-| Slice Registers         |  241 |     0 |    269200 |  0.09 |
-|   Register as Flip Flop |  238 |     0 |    269200 |  0.09 |
-|   Register as Latch     |    3 |     0 |    269200 | <0.01 |
-| F7 Muxes                |    0 |     0 |     67300 |  0.00 |
-| F8 Muxes                |    0 |     0 |     33650 |  0.00 |
-+-------------------------+------+-------+-----------+-------+
++----------------------------+-------+-------+-----------+-------+
+|          Site Type         |  Used | Fixed | Available | Util% |
++----------------------------+-------+-------+-----------+-------+
+| Slice LUTs*                | 12508 |     0 |    134600 |  9.29 |
+|   LUT as Logic             | 12428 |     0 |    134600 |  9.23 |
+|   LUT as Memory            |    80 |     0 |     46200 |  0.17 |
+|     LUT as Distributed RAM |     0 |     0 |           |       |
+|     LUT as Shift Register  |    80 |     0 |           |       |
+| Slice Registers            |  8426 |     0 |    269200 |  3.13 |
+|   Register as Flip Flop    |  8422 |     0 |    269200 |  3.13 |
+|   Register as Latch        |     4 |     0 |    269200 | <0.01 |
+| F7 Muxes                   |     1 |     0 |     67300 | <0.01 |
+| F8 Muxes                   |     0 |     0 |     33650 |  0.00 |
++----------------------------+-------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
 
@@ -54,10 +56,10 @@ Table of Contents
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 6     |          Yes |           - |          Set |
-| 169   |          Yes |           - |        Reset |
+| 28    |          Yes |           - |          Set |
+| 8271  |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 66    |          Yes |       Reset |            - |
+| 127   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -90,7 +92,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   20 |     0 |       285 |  7.02 |
+| Bonded IOB                  |   21 |     0 |       285 |  7.37 |
 | Bonded IPADs                |    0 |     0 |        14 |  0.00 |
 | Bonded OPADs                |    0 |     0 |         8 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |        10 |  0.00 |
@@ -147,27 +149,29 @@ Table of Contents
 7. Primitives
 -------------
 
-+-----------+------+---------------------+
-|  Ref Name | Used | Functional Category |
-+-----------+------+---------------------+
-| LUT2      |  261 |                 LUT |
-| FDCE      |  166 |        Flop & Latch |
-| LUT6      |   82 |                 LUT |
-| LUT4      |   78 |                 LUT |
-| CARRY4    |   75 |          CarryLogic |
-| LUT1      |   70 |                 LUT |
-| FDRE      |   66 |        Flop & Latch |
-| LUT5      |   48 |                 LUT |
-| LUT3      |   46 |                 LUT |
-| OSERDESE2 |    8 |                  IO |
-| OBUFT     |    8 |                  IO |
-| FDPE      |    6 |        Flop & Latch |
-| OBUFDS    |    4 |                  IO |
-| LDCE      |    3 |        Flop & Latch |
-| IBUF      |    3 |                  IO |
-| OBUF      |    1 |                  IO |
-| BUFG      |    1 |               Clock |
-+-----------+------+---------------------+
++-----------+-------+---------------------+
+|  Ref Name |  Used | Functional Category |
++-----------+-------+---------------------+
+| LUT2      | 10613 |                 LUT |
+| FDCE      |  8267 |        Flop & Latch |
+| LUT3      |  3315 |                 LUT |
+| CARRY4    |  2937 |          CarryLogic |
+| LUT4      |   530 |                 LUT |
+| FDRE      |   127 |        Flop & Latch |
+| LUT6      |    82 |                 LUT |
+| SRLC32E   |    80 |  Distributed Memory |
+| LUT5      |    63 |                 LUT |
+| FDPE      |    28 |        Flop & Latch |
+| OSERDESE2 |     8 |                  IO |
+| OBUFT     |     7 |                  IO |
+| LUT1      |     7 |                 LUT |
+| OBUFDS    |     4 |                  IO |
+| LDCE      |     4 |        Flop & Latch |
+| IBUF      |     4 |                  IO |
+| OBUF      |     2 |                  IO |
+| MUXF7     |     1 |               MuxFx |
+| BUFG      |     1 |               Clock |
++-----------+-------+---------------------+
 
 
 8. Black Boxes
@@ -176,9 +180,9 @@ Table of Contents
 +-----------------------+------+
 |        Ref Name       | Used |
 +-----------------------+------+
-| dsp_simple            |    2 |
+| dsp_simple            |  200 |
+| dsp_add_mult_add      |  100 |
 | mandel_blk_mem        |    1 |
-| dsp_add_mult_add      |    1 |
 | clk_vga_hdmi_1024x600 |    1 |
 +-----------------------+------+
 

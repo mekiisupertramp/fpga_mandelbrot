@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1591549021">
+<GenRun Id="synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1591697565">
   <File Type="VDS-TIMING-PB" Name="mandelbrot_pinout_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="mandelbrot_pinout_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="mandelbrot_pinout.dcp"/>
@@ -19,10 +19,22 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/btn_press.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/imports/c_gen/c_gen.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../../../../c_gen/c_gen.vhd"/>
         <Attr Name="ImportTime" Val="1588080887"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/compteur.vhd">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -33,13 +45,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/mandel_iter.vhd">
+    <File Path="$PSRCDIR/sources_1/new/mandel_calc_v2.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/mandelbrot_calculator.vhd">
+    <File Path="$PSRCDIR/sources_1/new/mandel_iter_v2.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -93,14 +105,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/mandel_calc_v2.vhd">
+    <File Path="$PSRCDIR/sources_1/new/mandel_iter.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/mandel_iter_v2.vhd">
+    <File Path="$PSRCDIR/sources_1/new/mandelbrot_calculator.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -109,7 +121,7 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/mandelbrot__calc_v2.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>

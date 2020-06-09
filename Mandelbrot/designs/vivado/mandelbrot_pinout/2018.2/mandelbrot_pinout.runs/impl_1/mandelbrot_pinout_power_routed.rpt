@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (lin64) Build 2708876 Wed Nov  6 21:39:14 MST 2019
-| Date             : Sun Jun  7 19:01:24 2020
+| Date             : Tue Jun  9 12:58:11 2020
 | Host             : xilinx-vm running 64-bit unknown
 | Command          : report_power -file mandelbrot_pinout_power_routed.rpt -pb mandelbrot_pinout_power_summary_routed.pb -rpx mandelbrot_pinout_power_routed.rpx
 | Design           : mandelbrot_pinout
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.425        |
+| Total On-Chip Power (W)  | 0.820        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.278        |
-| Device Static (W)        | 0.147        |
+| Dynamic (W)              | 0.659        |
+| Device Static (W)        | 0.162        |
 | Effective TJA (C/W)      | 3.3          |
-| Max Ambient (C)          | 83.6         |
-| Junction Temperature (C) | 26.4         |
+| Max Ambient (C)          | 82.3         |
+| Junction Temperature (C) | 27.7         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -49,24 +49,25 @@ Table of Contents
 1.1 On-Chip Components
 ----------------------
 
-+----------------+-----------+----------+-----------+-----------------+
-| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
-+----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.008 |        7 |       --- |             --- |
-| Slice Logic    |     0.002 |     2280 |       --- |             --- |
-|   LUT as Logic |     0.002 |      999 |    133800 |            0.75 |
-|   CARRY4       |    <0.001 |       75 |     33450 |            0.22 |
-|   Register     |    <0.001 |      259 |    267600 |            0.10 |
-|   Others       |     0.000 |      489 |       --- |             --- |
-|   F7/F8 Muxes  |     0.000 |      216 |    133800 |            0.16 |
-| Signals        |     0.005 |     2390 |       --- |             --- |
-| Block RAM      |    <0.001 |      150 |       365 |           41.10 |
-| MMCM           |     0.125 |        1 |        10 |           10.00 |
-| DSPs           |     0.002 |        3 |       740 |            0.41 |
-| I/O            |     0.135 |       20 |       285 |            7.02 |
-| Static Power   |     0.147 |          |           |                 |
-| Total          |     0.425 |          |           |                 |
-+----------------+-----------+----------+-----------+-----------------+
++-------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
++-------------------------+-----------+----------+-----------+-----------------+
+| Clocks                  |     0.033 |        7 |       --- |             --- |
+| Slice Logic             |     0.071 |    28019 |       --- |             --- |
+|   LUT as Logic          |     0.060 |    12881 |    133800 |            9.63 |
+|   CARRY4                |     0.008 |     2918 |     33450 |            8.72 |
+|   Register              |     0.003 |     8372 |    267600 |            3.13 |
+|   LUT as Shift Register |    <0.001 |       80 |     46200 |            0.17 |
+|   F7/F8 Muxes           |    <0.001 |      217 |    133800 |            0.16 |
+|   Others                |     0.000 |     1274 |       --- |             --- |
+| Signals                 |     0.125 |    26601 |       --- |             --- |
+| Block RAM               |    <0.001 |      150 |       365 |           41.10 |
+| MMCM                    |     0.125 |        1 |        10 |           10.00 |
+| DSPs                    |     0.169 |      296 |       740 |           40.00 |
+| I/O                     |     0.135 |       21 |       285 |            7.37 |
+| Static Power            |     0.162 |          |           |                 |
+| Total                   |     0.820 |          |           |                 |
++-------------------------+-----------+----------+-----------+-----------------+
 
 
 1.2 Power Supply Summary
@@ -75,16 +76,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.054 |       0.019 |      0.035 |
+| Vccint    |       1.000 |     0.437 |       0.401 |      0.037 |
 | Vccaux    |       1.800 |     0.100 |       0.069 |      0.031 |
-| Vcco33    |       3.300 |     0.046 |       0.041 |      0.005 |
-| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
+| Vcco33    |       3.300 |     0.045 |       0.040 |      0.005 |
+| Vcco25    |       2.500 |     0.005 |       0.000 |      0.005 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.004 |       0.000 |      0.004 |
+| Vccbram   |       1.000 |     0.005 |       0.000 |      0.005 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -148,14 +149,113 @@ Table of Contents
 +-----------------------------------------------+-----------+
 | Name                                          | Power (W) |
 +-----------------------------------------------+-----------+
-| mandelbrot_pinout                             |     0.278 |
-|   FpgaUserCDxB.Mandelbrot_memory              |     0.005 |
-|     U0                                        |     0.005 |
-|       inst_blk_mem_gen                        |     0.005 |
-|   FpgaUserCDxB.comp_generator                 |     0.001 |
-|   FpgaUserCDxB.mandelbrot                     |     0.003 |
-|     mandelbrot                                |     0.003 |
-|   VgaHdmiCDxB.HdmixI                          |     0.266 |
+| mandelbrot_pinout                             |     0.659 |
+|   FpgaUserCDxB.Mandelbrot_memory              |     0.003 |
+|     U0                                        |     0.003 |
+|       inst_blk_mem_gen                        |     0.003 |
+|   FpgaUserCDxB.comp_generator                 |     0.002 |
+|     ZoomInOutxB.ComplexValueGeneratorxI       |     0.001 |
+|   FpgaUserCDxB.mandel_calcv2                  |     0.389 |
+|     GEN_MANDEL_ITERS[0].MANDEL_ITER           |     0.002 |
+|     GEN_MANDEL_ITERS[10].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[11].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[12].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[13].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[14].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[15].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[16].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[17].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[18].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[19].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[1].MANDEL_ITER           |     0.003 |
+|     GEN_MANDEL_ITERS[20].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[21].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[22].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[23].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[24].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[25].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[26].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[27].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[28].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[29].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[2].MANDEL_ITER           |     0.003 |
+|     GEN_MANDEL_ITERS[30].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[31].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[32].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[33].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[34].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[35].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[36].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[37].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[38].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[39].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[3].MANDEL_ITER           |     0.003 |
+|     GEN_MANDEL_ITERS[40].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[41].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[42].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[43].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[44].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[45].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[46].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[47].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[48].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[49].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[4].MANDEL_ITER           |     0.003 |
+|     GEN_MANDEL_ITERS[50].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[51].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[52].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[53].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[54].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[55].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[56].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[57].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[58].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[59].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[5].MANDEL_ITER           |     0.003 |
+|     GEN_MANDEL_ITERS[60].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[61].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[62].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[63].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[64].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[65].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[66].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[67].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[68].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[69].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[6].MANDEL_ITER           |     0.003 |
+|     GEN_MANDEL_ITERS[70].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[71].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[72].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[73].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[74].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[75].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[76].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[77].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[78].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[79].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[7].MANDEL_ITER           |     0.003 |
+|     GEN_MANDEL_ITERS[80].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[81].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[82].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[83].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[84].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[85].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[86].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[87].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[88].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[89].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[8].MANDEL_ITER           |     0.003 |
+|     GEN_MANDEL_ITERS[90].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[91].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[92].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[93].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[94].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[95].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[96].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[97].MANDEL_ITER          |     0.003 |
+|     GEN_MANDEL_ITERS[98].MANDEL_ITER          |     0.001 |
+|     GEN_MANDEL_ITERS[9].MANDEL_ITER           |     0.003 |
+|   VgaHdmiCDxB.HdmixI                          |     0.265 |
 |     ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI |     0.127 |
 |       inst                                    |     0.127 |
 |     VgaToHdmixI                               |     0.137 |
